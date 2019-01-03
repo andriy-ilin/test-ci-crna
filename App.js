@@ -20,7 +20,7 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <Text>test</Text>
+          <Text>New text</Text>
         </View>
       );
     }
