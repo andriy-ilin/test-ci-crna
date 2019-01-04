@@ -5,6 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
+    "test:watch": "node ./node_modules/jest/bin/jest.js --watchAll",
     "test": "npx jest-expo --ci"
   },
   "jest": {

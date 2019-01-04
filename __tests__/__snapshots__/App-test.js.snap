@@ -14,5 +14,8 @@ exports[`App snapshot renders the root without loading screen 1`] = `
   <Text>
     New text
   </Text>
+  <Text>
+    New deploy
+  </Text>
 </View>
 `;
