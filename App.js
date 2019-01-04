@@ -21,6 +21,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           <Text>New text</Text>
+          <Text>New deploy</Text>
         </View>
       );
     }
