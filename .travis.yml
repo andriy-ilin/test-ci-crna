@@ -18,16 +18,12 @@ jobs:
     - stage: deploy
       node_js: lts/*
       script:
-        - npm ci
         - npm install -g expo-cli
-        - npx watchman watch-del-all || travis_terminate 1
-        - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD || travis_terminate 1
-        - npx expo publish --non-interactive || travis_terminate 1
+        - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+        - npx expo publish --non-interactive
     - stage: release
       if: branch = env(TRUNK_BRANCH) AND type = push
       script:
         - source ./.travis/prepare-release.sh || travis_terminate 1
         - npm run release || travis_terminate 1
         - git push --follow-tags origin $TRAVIS_BRANCH || travis_terminate 1
-        - npm run github-release || travis_terminate 1
-        - npm publish || travis_terminate 1
