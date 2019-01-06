@@ -10,12 +10,17 @@ env:
     - TRUNK_BRANCH="master"
 before_script:
   - npm install -g npm@latest
-script:
+install:
   - npm ci
-  - npm test -- -u
+  - source ./.travis/create-dotenv.sh
+script: skip
 jobs:
   include:
+    - stage: test
+      script:
+        - npm test -- -u
     - stage: deploy
+      if: branch = env(TRUNK_BRANCH) AND type = push
       node_js: lts/*
       script:
         - npm install -g expo-cli
