@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.2.0...v0.3.0) (2019-01-07)
+
+
+### Features
+
+* add dotenv for firebase config to project ([942d614](https://github.com/andriy-ilin/test-ci-crna/commit/942d614))
+* add firebase init config ([74f7ffd](https://github.com/andriy-ilin/test-ci-crna/commit/74f7ffd))
+* use firebase database in App ([6d9404d](https://github.com/andriy-ilin/test-ci-crna/commit/6d9404d))
+
+
+
 <a name="0.2.0"></a>
 # 0.2.0 (2019-01-05)
 
