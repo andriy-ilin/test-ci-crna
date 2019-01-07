@@ -1,8 +1,15 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
-import CatalogArticles from "./CatalogArticles";
-// import AppNavigator from "./navigation/AppNavigator";
+import { Provider, observer } from "mobx-react";
+import { configure } from "mobx";
+
+import AppNavigator from "./navigation/AppNavigator";
+import stores from "./stores";
+
+configure({
+  enforceActions: "always"
+});
 
 export default class App extends React.Component {
   state = {
@@ -20,11 +27,9 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          <Text>New text</Text>
-          <Text>New deploy</Text>
-          <CatalogArticles />
-        </View>
+        <Provider {...stores} style={styles.container}>
+          <AppNavigator ref={stores.navigation.setNavRef} />
+        </Provider>
       );
     }
   }
