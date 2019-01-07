@@ -1,15 +1,41 @@
-import React from "react";
-import { createSwitchNavigator } from "react-navigation";
+import {
+  createStackNavigator,
+  createBottomTabNavigator,
+  createAppContainer
+} from "react-navigation";
+import Header from "../components/Header";
+import HomeScreen from "../screens/HomeScreen";
+import ArticleScreen from "../screens/ArticleScreen";
 
-import MainTabNavigator from "./MainTabNavigator";
+const ListsNavigator = createBottomTabNavigator({
+  home: {
+    screen: HomeScreen
+  },
+  article: {
+    screen: ArticleScreen
+  }
+});
 
-export default createSwitchNavigator(
+const StackNavigator = createStackNavigator(
   {
-    // You could add another route here for authentication.
-    // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Main: MainTabNavigator
+    home: {
+      screen: HomeScreen
+    },
+    article: {
+      screen: ArticleScreen
+    }
   },
   {
-    initialRouteName: "Main"
+    initialRouteName: "home",
+    navigationOptions: ({ navigation }) => {
+      return {
+        header: props => {
+          return <Header {...props} />;
+        }
+        // mode: 'card'
+      };
+    }
   }
 );
+
+export default createAppContainer(StackNavigator);
