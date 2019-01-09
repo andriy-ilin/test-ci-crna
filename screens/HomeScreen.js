@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Image, TouchableOpacity } from "react-native";
-import { inject } from "mobx-react";
+import { inject } from "mobx-react/native";
 
 import { database } from "../helpers/firebase";
 const link = "/catalog";
@@ -9,6 +9,7 @@ const get = lang => database.ref(`${link}/${lang}`).once("value");
 
 export default class CatalogArticles extends Component {
   state = {
+    loaded: false,
     catalogArticles: []
   };
 
@@ -17,7 +18,8 @@ export default class CatalogArticles extends Component {
       .ref(`/catalog/ru`)
       .on("value", snapshot =>
         this.setState({
-          catalogArticles: Object.values(snapshot.val())
+          catalogArticles: Object.values(snapshot.val()),
+          loaded: true
         })
       );
   }
@@ -25,17 +27,17 @@ export default class CatalogArticles extends Component {
   render() {
     const { catalogArticles } = this.state;
     return (
-      <ScrollView>
+      <View>
         {catalogArticles.map(({ mainTitle, mainBg, id }) => (
           <Article key={id} id={id} mainBg={mainBg} mainTitle={mainTitle} />
         ))}
-      </ScrollView>
+      </View>
     );
   }
 }
 
 @inject("navigation")
-class Article extends Component {
+export class Article extends Component {
   render() {
     const { mainBg, mainTitle, id } = this.props;
     return (
