@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article snapshot Article snapshot 1`] = `
+<Provider
+  navigation={
+    NavigationStore {
+      "allStores": Object {
+        "navigation": [Circular],
+      },
+      "goBack": [Function],
+      "goTo": [Function],
+      "ref": null,
+      "reset": [Function],
+      "setNavRef": [Function],
+    }
+  }
+>
+  <inject-Article-with-navigation>
+    <Article
+      navigation={
+        NavigationStore {
+          "allStores": Object {
+            "navigation": [Circular],
+          },
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        }
+      }
+    >
+      <Component>
+        <View>
+          <TouchableOpacity
+            activeOpacity={0.2}
+            onPress={[Function]}
+          >
+            <AnimatedComponent
+              accessible={true}
+              isTVSelectable={true}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Array [
+                  undefined,
+                  Object {
+                    "opacity": 1,
+                  },
+                ]
+              }
+            >
+              <Component
+                accessible={true}
+                isTVSelectable={true}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+              >
+                <View
+                  accessible={true}
+                  isTVSelectable={true}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Component>
+                    <Text>
+                      undefined
+                    </Text>
+                  </Component>
+                  <Component
+                    source={
+                      Object {
+                        "uri": undefined,
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 51,
+                        "width": 51,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "uri": undefined,
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 51,
+                          "width": 51,
+                        }
+                      }
+                    />
+                  </Component>
+                </View>
+              </Component>
+            </AnimatedComponent>
+          </TouchableOpacity>
+        </View>
+      </Component>
+    </Article>
+  </inject-Article-with-navigation>
+</Provider>
+`;
+
+exports[`Article snapshot renders ArticleScreen 1`] = `
+<ArticleScreen>
+  <Component>
+    <View>
+      <Component>
+        <Text>
+          ArticleScreen
+        </Text>
+      </Component>
+    </View>
+  </Component>
+</ArticleScreen>
+`;
