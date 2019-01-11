@@ -2,9 +2,27 @@
 
 exports[`Article snapshot Article snapshot 1`] = `
 <Provider
+  article={
+    ArticleStore {
+      "allStores": Object {
+        "article": [Circular],
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+      },
+    }
+  }
   navigation={
     NavigationStore {
       "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
         "navigation": [Circular],
       },
       "goBack": [Function],
@@ -20,6 +38,9 @@ exports[`Article snapshot Article snapshot 1`] = `
       navigation={
         NavigationStore {
           "allStores": Object {
+            "article": ArticleStore {
+              "allStores": [Circular],
+            },
             "navigation": [Circular],
           },
           "goBack": [Function],
