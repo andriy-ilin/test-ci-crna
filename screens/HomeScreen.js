@@ -1,31 +1,28 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Image, TouchableOpacity } from "react-native";
-import { inject } from "mobx-react/native";
+import { inject, observer } from "mobx-react/native";
+import Header from "../components/Header";
 
-import { database } from "../helpers/firebase";
-const link = "/catalog";
-
-const get = lang => database.ref(`${link}/${lang}`).once("value");
-
+@inject("article")
+@observer
 export default class CatalogArticles extends Component {
+  static navigationOptions = {
+    headerTitle: <Header />
+  };
   state = {
     loaded: false,
     catalogArticles: []
   };
 
   async componentDidMount() {
-    const catalogArticles = await database
-      .ref(`/catalog/ru`)
-      .on("value", snapshot =>
-        this.setState({
-          catalogArticles: Object.values(snapshot.val()),
-          loaded: true
-        })
-      );
+    const { article } = this.props;
+    await article.getArticle(`/catalog/ru`);
+    this.setState({ loaded: true, catalogArticles: article.list });
   }
 
   render() {
     const { catalogArticles } = this.state;
+
     return (
       <View>
         {catalogArticles.map(({ mainTitle, mainBg, id }) => (
