@@ -29,9 +29,6 @@ const StackNavigator = createStackNavigator(
     initialRouteName: "home",
     navigationOptions: ({ navigation }) => {
       return {
-        header: props => {
-          return <Header {...props} />;
-        }
         // mode: 'card'
       };
     }
