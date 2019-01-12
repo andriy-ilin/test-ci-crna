@@ -1,8 +1,10 @@
+import React from "react";
 import {
   createStackNavigator,
   createBottomTabNavigator,
   createAppContainer
 } from "react-navigation";
+
 import Header from "../components/Header";
 import HomeScreen from "../screens/HomeScreen";
 import ArticleScreen from "../screens/ArticleScreen";
@@ -27,10 +29,13 @@ const StackNavigator = createStackNavigator(
   },
   {
     initialRouteName: "home",
-    navigationOptions: ({ navigation }) => {
-      return {
-        // mode: 'card'
-      };
+    defaultNavigationOptions: {
+      headerTintColor: "#fff",
+      headerStyle: {
+        backgroundColor: "#000"
+      },
+      header: <Header />,
+      mode: "card"
     }
   }
 );

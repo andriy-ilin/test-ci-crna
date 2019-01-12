@@ -6,9 +6,6 @@ import Header from "../components/Header";
 @inject("article")
 @observer
 export default class CatalogArticles extends Component {
-  static navigationOptions = {
-    headerTitle: <Header />
-  };
   state = {
     loaded: false,
     catalogArticles: []

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { View, ScrollView, Text, Image } from "react-native";
+import { View, ScrollView, Text, Image, TouchableOpacity } from "react-native";
 
 import Header from "../components/Header";
 
 export class ArticleScreen extends Component {
-  static navigationOptions = {
-    header: <Header />
-  };
   render() {
     return (
       <View>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("home")}
+        >
+          <Text>Back</Text>
+        </TouchableOpacity>
         <Text>ArticleScreen</Text>
       </View>
     );
