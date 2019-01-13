@@ -13,7 +13,7 @@ export default class CatalogArticles extends Component {
 
   async componentDidMount() {
     const { article } = this.props;
-    await article.getArticle(`/catalog/ru`);
+    await article.getArticle(`/catalog/en`);
     this.setState({ loaded: true, catalogArticles: article.list });
   }
 
@@ -21,11 +21,11 @@ export default class CatalogArticles extends Component {
     const { catalogArticles } = this.state;
 
     return (
-      <View>
+      <ScrollView>
         {catalogArticles.map(({ mainTitle, mainBg, id }) => (
           <Article key={id} id={id} mainBg={mainBg} mainTitle={mainTitle} />
         ))}
-      </View>
+      </ScrollView>
     );
   }
 }
