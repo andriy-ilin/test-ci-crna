@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.5.0...v0.6.0) (2019-01-13)
+
+
+### Features
+
+* add icons(images) for header and tabBar ([e232bb0](https://github.com/andriy-ilin/test-ci-crna/commit/e232bb0))
+* add TabBar and change navigator screen ([4a13eaa](https://github.com/andriy-ilin/test-ci-crna/commit/4a13eaa))
+* add template for screens ([b7a2efd](https://github.com/andriy-ilin/test-ci-crna/commit/b7a2efd))
+* design Header component for navigation ([52370ea](https://github.com/andriy-ilin/test-ci-crna/commit/52370ea))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.4.0...v0.5.0) (2019-01-12)
 
