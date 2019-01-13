@@ -24,7 +24,7 @@ describe("Article snapshot", () => {
     const wrapper = mount(<ArticleScreen />);
     const text = wrapper
       .find("Text")
-      .at(0)
+      .at(1)
       .text();
     expect(text).toEqual("ArticleScreen");
   });
