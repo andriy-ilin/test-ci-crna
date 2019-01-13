@@ -36,7 +36,11 @@ describe("Firebase test", () => {
   it("GET role by ID", async () => {
     const key = random(0, articleAuthors.length - 1);
     const { name } = articleAuthors[key];
-    authorsId = slugify(name);
+
+    authorsId = name.includes(", ")
+      ? slugify(name.split(", ")[0])
+      : slugify(name);
+
     const author = await api.fetchAllByEntityName(
       `/role/${langKey}/${authorsId}`
     );
