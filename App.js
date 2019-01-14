@@ -47,6 +47,7 @@ class App extends React.Component {
         require("./assets/images/menuIcon.png"),
         require("./assets/images/downArrow.png"),
         require("./assets/images/rightArrow.png"),
+        require("./assets/images/leftArrow.png"),
         require("./assets/images/tabBar/homeActive.png"),
         require("./assets/images/tabBar/homeInactive.png"),
         require("./assets/images/tabBar/donateActive.png"),

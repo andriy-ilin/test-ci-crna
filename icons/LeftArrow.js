@@ -1,12 +1,12 @@
 import React from "react";
 import { Image } from "react-native";
 
-const RightArrow = props => (
+const LeftArrow = props => (
   <Image
-    source={require("../assets/images/rightArrow.png")}
+    source={require("../assets/images/leftArrow.png")}
     style={{ width: 12, height: 22, ...props }}
     resizeMode="cover"
   />
 );
 
-export default RightArrow;
+export default LeftArrow;

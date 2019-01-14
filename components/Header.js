@@ -12,12 +12,15 @@ import { withNamespaces } from "react-i18next";
 
 import Logo from "../icons/Logo";
 import MenuIcon from "../icons/Menu";
+import LeftArrow from "../icons/LeftArrow";
 import DownArrow from "../icons/DownArrow";
 const APPBAR_HEIGHT = Platform.OS === "ios" ? 44 : 56;
 const STATUSBAR_HEIGHT = Platform.OS === "ios" ? 30 : 0;
 
 const TITLE_OFFSET_CENTER_ALIGN = Platform.OS === "ios" ? 70 : 56;
 const TITLE_OFFSET_LEFT_ALIGN = Platform.OS === "ios" ? 20 : 56;
+
+const WHITE_LIST_ROUTE = ["home", "shop", "donate", "favorite", "regions"];
 
 export default class Header extends React.Component {
   static get HEIGHT() {
@@ -31,13 +34,13 @@ export default class Header extends React.Component {
       centerBlock: CenterBlock = DefaultCenterBlock,
       navigation
     } = this.props;
-
+    const mainRoute = WHITE_LIST_ROUTE.includes(navigation.state.routeName);
     return (
       <View style={[styles.container]}>
         <View style={[styles.statusBar]} />
         <View style={[styles.appBar]}>
           <LeftBlockWrapper>
-            <LeftBlock navigation={navigation} />
+            <LeftBlock navigation={navigation} mainRoute={mainRoute} />
           </LeftBlockWrapper>
 
           <CenterBlockWrapper>
@@ -53,10 +56,14 @@ export default class Header extends React.Component {
   }
 }
 
-const DefaultLeftBlock = ({ navigation }) => (
+const DefaultLeftBlock = ({ navigation, mainRoute }) => (
   <View style={[styles.leftBlock]}>
-    <TouchableOpacity onPress={() => navigation.navigate("menu")}>
-      <MenuIcon />
+    <TouchableOpacity
+      onPress={() =>
+        mainRoute ? navigation.navigate("menu") : navigation.goBack()
+      }
+    >
+      {mainRoute ? <MenuIcon /> : <LeftArrow />}
     </TouchableOpacity>
   </View>
 );
