@@ -1,0 +1,70 @@
+{
+  "home": {
+    "Top stories": "Top stories",
+    "Discover more than 200 breathtaking articles about Ukraine": "Discover more than 200 breathtaking articles about Ukraine",
+    "More stories": "More stories",
+    "view all": "view all"
+  },
+  "common": {
+    "Clear filters": "Clear filters",
+    "Start typing...": "Start typing...",
+    "Search": "Search"
+  },
+  "regions": {
+    "Regions": "Regions",
+    "All stories": "All stories"
+  },
+  "favorites": {
+    "Favorites": "Favorites",
+    "Your saved stories are available offline.": "Your saved stories are available offline."
+  },
+  "partners": {
+    "Partners": "Partners",
+    "Become a partner": "Become a partner"
+  },
+  "contacts": {
+    "Contacts": "Contacts"
+  },
+  "video": {
+    "Video": "Video"
+  },
+  "team": {
+    "Team": "Team",
+    "Join the team": "Join the team",
+    "Share music": "Share music",
+    "Recommend location": "Recommend location"
+  },
+  "menu": {
+    "About": "About",
+    "Team": "Team",
+    "Video": "Video",
+    "Partners": "Partners",
+    "Contacts": "Contacts"
+  },
+  "donate": {
+    "We are raising": "We are raising",
+    "1 million UAH": "1 million UAH",
+    "357 000 UAH": "357 000 UAH",
+    "35%": "35%",
+    "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education, as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.": "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education, as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.",
+    "Therefore, any contribution to Ukraїner is your contribution to Ukraine!": "Therefore, any contribution to Ukraїner is your contribution to Ukraine!",
+    "Support the project": "Support the project"
+  },
+  "shop": {
+    "Shop": "Shop",
+    "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.": "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.",
+    "Description": "Description",
+    "Size": "Size",
+    "Amount": "Amount",
+    "Add to cart": "Add to cart",
+    "Total": "Total",
+    "Check out": "Check out"
+  },
+  "tabBar": {
+    "home": "home",
+    "favorite": "favorite",
+    "donate": "donate",
+    "shop": "shop",
+    "regions": "regions"
+  }
+}

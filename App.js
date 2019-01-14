@@ -3,6 +3,8 @@ import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import { Provider, observer } from "mobx-react/native";
 import { configure } from "mobx";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./services/i18n";
 
 import AppNavigator from "./navigation/AppNavigator";
 import stores from "./stores";
@@ -28,9 +30,11 @@ class App extends React.Component {
       );
     } else {
       return (
-        <Provider {...stores} style={styles.container}>
-          <AppNavigator ref={stores.navigation.setNavRef} />
-        </Provider>
+        <I18nextProvider i18n={i18n}>
+          <Provider {...stores} style={styles.container}>
+            <AppNavigator ref={stores.navigation.setNavRef} />
+          </Provider>
+        </I18nextProvider>
       );
     }
   }
@@ -39,8 +43,10 @@ class App extends React.Component {
     return Promise.all([
       Asset.loadAsync([
         require("./assets/images/logoBlack.png"),
+        require("./assets/images/logoGradient.png"),
         require("./assets/images/menuIcon.png"),
         require("./assets/images/downArrow.png"),
+        require("./assets/images/rightArrow.png"),
         require("./assets/images/tabBar/homeActive.png"),
         require("./assets/images/tabBar/homeInactive.png"),
         require("./assets/images/tabBar/donateActive.png"),
