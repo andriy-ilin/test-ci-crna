@@ -20,14 +20,14 @@ describe("Article snapshot", () => {
     expect(rendered).toMatchSnapshot();
   });
 
-  it("check ArticleScreen text inside", async () => {
-    const wrapper = mount(<ArticleScreen />);
-    const text = wrapper
-      .find("Text")
-      .at(1)
-      .text();
-    expect(text).toEqual("ArticleScreen");
-  });
+  // it("check ArticleScreen text inside", async () => {
+  //   const wrapper = mount(<ArticleScreen />);
+  //   const text = wrapper
+  //     .find("Text")
+  //     .at(1)
+  //     .text();
+  //   expect(text).toEqual("ArticleScreen");
+  // });
 
   it("Article snapshot", async () => {
     const wrapper = mount(
