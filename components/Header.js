@@ -7,6 +7,9 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native";
+import { inject, observer } from "mobx-react/native";
+import { withNamespaces } from "react-i18next";
+
 import Logo from "../icons/Logo";
 import MenuIcon from "../icons/Menu";
 import DownArrow from "../icons/DownArrow";
@@ -57,14 +60,26 @@ const DefaultLeftBlock = ({ navigation }) => (
     </TouchableOpacity>
   </View>
 );
-const DefaultRightBlock = () => (
-  <View style={[styles.rightBlock]}>
-    <TouchableOpacity style={[styles.rightBlockView]}>
-      <DownArrow marginRight={5} />
-      <Text>UK</Text>
-    </TouchableOpacity>
-  </View>
-);
+
+@withNamespaces(["home", "common"], { wait: true })
+@observer
+class DefaultRightBlock extends React.Component {
+  render() {
+    const { lng, i18n } = this.props;
+    return (
+      <View style={[styles.rightBlock]}>
+        <TouchableOpacity
+          style={[styles.rightBlockView]}
+          onPress={() => i18n.changeLanguage(lng === "en" ? "de" : "en")}
+        >
+          <DownArrow marginRight={5} />
+          <Text>{lng.toUpperCase()}</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
 const DefaultCenterBlock = () => (
   <View style={[styles.centerBlock]}>
     <Logo />

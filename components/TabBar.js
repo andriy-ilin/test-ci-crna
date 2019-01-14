@@ -7,6 +7,9 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native";
+import { observer } from "mobx-react/native";
+import { withNamespaces } from "react-i18next";
+
 import HomeTabBar from "../icons/HomeTabBar";
 import ShopTabBar from "../icons/ShopTabBar";
 import FavoriteTabBar from "../icons/FavoriteTabBar";
@@ -35,6 +38,8 @@ const links = [
   }
 ];
 
+@withNamespaces(["tabBar"], { wait: true })
+@observer
 export default class TabBar extends React.Component {
   render() {
     const {
@@ -42,7 +47,8 @@ export default class TabBar extends React.Component {
       navigation: {
         navigate,
         state: { routeName }
-      }
+      },
+      t
     } = this.props;
     return (
       <View style={[styles.container]}>
@@ -52,6 +58,7 @@ export default class TabBar extends React.Component {
             {...item}
             navigate={navigate}
             routeName={routeName}
+            t={t}
           />
         ))}
       </View>
@@ -59,14 +66,21 @@ export default class TabBar extends React.Component {
   }
 }
 
-const DefaultLinkBlock = ({ name, title, navigate, routeName, icon: Icon }) => (
+const DefaultLinkBlock = ({
+  name,
+  title,
+  navigate,
+  t,
+  routeName,
+  icon: Icon
+}) => (
   <TouchableOpacity onPress={() => navigate(name)} style={[styles.linkBlock]}>
     <View style={[styles.iconWrapper]}>
       <Icon active={name === routeName} />
     </View>
     <View style={[styles.titleWrapper]}>
       <Text style={[styles.title, name === routeName && { color: "#75d396" }]}>
-        {title}
+        {t(title)}
       </Text>
     </View>
   </TouchableOpacity>
