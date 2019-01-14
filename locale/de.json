@@ -1,0 +1,70 @@
+{
+  "home": {
+    "Top stories": "Top Stories",
+    "Discover more than 200 breathtaking articles about Ukraine": "Entdecken Sie mehr als 200 atemberaubende Artikel über die Ukraine",
+    "More stories": "Weitere Geschichten",
+    "view all": "Alle anzeigen"
+  },
+  "common": {
+    "Clear filters": "Filter löschen",
+    "Start typing...": "Beginnen Sie mit der Eingabe ...",
+    "Search": "Suche"
+  },
+  "regions": {
+    "Regions": "Regionen",
+    "All stories": "Alle Geschichten"
+  },
+  "favorites": {
+    "Favorites": "Favoriten",
+    "Your saved stories are available offline.": "Ihre gespeicherten Storys sind offline verfügbar."
+  },
+  "partners": {
+    "Partners": "Partner",
+    "Become a partner": "Partner werden"
+  },
+  "contacts": {
+    "Contacts": "Kontakte"
+  },
+  "video": {
+    "Video": "Video"
+  },
+  "team": {
+    "Team": "Team",
+    "Join the team": "Dem Team beitreten",
+    "Share music": "Musik teilen",
+    "Recommend location": "Standort empfehlen"
+  },
+  "menu": {
+    "About": "Über",
+    "Team": "Team",
+    "Video": "Video",
+    "Partners": "Partner",
+    "Contacts": "Kontakte"
+  },
+  "donate": {
+    "We are raising": "Wir erhöhen",
+    "1 million UAH": "1 Million UAH",
+    "357 000 UAH": "357 000 UAH",
+    "35%": "35%",
+    "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education, as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.": "Wir entdecken die Ukraine und wandeln diese Entdeckungen in nützliche visuelle Inhalte um, die bereits in der Bildung verwendet werden, um die Regionen im Land darzustellen und das touristische Potenzial der Ukraine in der Welt darzustellen.",
+    "Therefore, any contribution to Ukraїner is your contribution to Ukraine!": "Daher ist jeder Beitrag an Ukraїner Ihr Beitrag an die Ukraine!",
+    "Support the project": "Unterstützen Sie das Projekt"
+  },
+  "shop": {
+    "Shop": "Shop",
+    "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.": "Alle aus dem Verkauf von Waren entnommenen Gelder werden für die Entwicklung von Expeditionen verwendet.",
+    "Description": "Beschreibung",
+    "Size": "Größe",
+    "Amount": "Betrag",
+    "Add to cart": "In den Warenkorb legen",
+    "Total": "Gesamt",
+    "Check out": "Auschecken"
+  },
+  "tabBar": {
+    "home": "hause",
+    "favorite": "favorit",
+    "donate": "spenden",
+    "shop": "shop",
+    "regions": "regionen"
+  }
+}
