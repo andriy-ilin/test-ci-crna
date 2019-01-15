@@ -10,6 +10,7 @@ import TabBar from "../components/TabBar";
 import MenuScreen from "../screens/MenuScreen";
 import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
+import ContactsScreen from "../screens/ContactsScreen";
 import DonateScreen from "../screens/DonateScreen";
 import ShopScreen from "../screens/ShopScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
@@ -30,6 +31,9 @@ const HomeStackNavigator = createStackNavigator(
     },
     about: {
       screen: AboutScreen
+    },
+    contacts: {
+      screen: ContactsScreen
     }
   },
   {
