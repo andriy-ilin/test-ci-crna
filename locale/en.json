@@ -46,13 +46,14 @@
     "1 million UAH": "1 million UAH",
     "357 000 UAH": "357 000 UAH",
     "35%": "35%",
-    "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education, as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.": "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education, as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.",
+    "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education,": "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education,",
+    "as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.": " as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.",
     "Therefore, any contribution to Ukraїner is your contribution to Ukraine!": "Therefore, any contribution to Ukraїner is your contribution to Ukraine!",
     "Support the project": "Support the project"
   },
   "shop": {
     "Shop": "Shop",
-    "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.": "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.",
+    "Long Description": "All funds withdrawn from the sale of goods will be directed towards the development of expeditions.",
     "Description": "Description",
     "Size": "Size",
     "Amount": "Amount",
