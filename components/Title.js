@@ -7,6 +7,12 @@ const Title = ({ children, ...props }) => (
   </Text>
 );
 
+Title.H2 = ({ children, ...props }) => (
+  <Title style={[styles.title]} {...props}>
+    {children}
+  </Title>
+);
+
 export default Title;
 
 const styles = StyleSheet.create({
@@ -15,8 +21,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingTop: 20,
     paddingBottom: 20,
-    fontSize: 26,
-    lineHeight: 24,
+    fontSize: 30,
+    lineHeight: 35,
     fontWeight: "bold"
+  },
+  h2: {
+    fontSize: 26,
+    lineHeight: 30
   }
 });
