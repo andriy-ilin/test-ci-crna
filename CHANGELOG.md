@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.7.0...v0.8.0) (2019-01-15)
+
+
+### Features
+
+* add Blockquote Title StyledText Line components ([f9157d4](https://github.com/andriy-ilin/test-ci-crna/commit/f9157d4))
+* add navigation goBack on Header for navigate not white list screen ([d61ba39](https://github.com/andriy-ilin/test-ci-crna/commit/d61ba39))
+* styled AboutScreen add images to loadAsync ([e171e5d](https://github.com/andriy-ilin/test-ci-crna/commit/e171e5d))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.6.0...v0.7.0) (2019-01-14)
 
