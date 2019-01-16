@@ -1,4 +1,4 @@
-import { observable, computed, action } from "mobx";
+import { observable, computed, action, toJS } from "mobx";
 import api from "../services/api";
 import { entitiesFromFB } from "./utils";
 
@@ -9,9 +9,14 @@ class ArticleStore extends BasicStore {
   @observable loaded = false;
 
   @observable entities = {};
+  @observable articleData = {};
 
   @computed get list() {
     return Object.values(this.entities);
+  }
+
+  @computed get article() {
+    return toJS(this.articleData);
   }
 
   @action set(name, data) {
@@ -19,9 +24,9 @@ class ArticleStore extends BasicStore {
   }
 
   @action
-  async getArticle(refName) {
+  async getArticle(refName, name = "entities") {
     const data = await api.fetchAllByEntityName(refName);
-    this.set("entities", data);
+    this.set(name, data);
   }
 }
 
