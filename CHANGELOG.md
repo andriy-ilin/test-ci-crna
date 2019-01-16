@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.9.0...v0.10.0) (2019-01-16)
+
+
+### Bug Fixes
+
+* delete not used component CatalogArticles from project ([f4431ca](https://github.com/andriy-ilin/test-ci-crna/commit/f4431ca))
+
+
+### Features
+
+* add image partners and filter find icons ([ac57bd5](https://github.com/andriy-ilin/test-ci-crna/commit/ac57bd5))
+* add regions store, refactor article store ([0e74e67](https://github.com/andriy-ilin/test-ci-crna/commit/0e74e67))
+* update Region About Article Home screens ([b88c732](https://github.com/andriy-ilin/test-ci-crna/commit/b88c732))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.8.0...v0.9.0) (2019-01-15)
 
