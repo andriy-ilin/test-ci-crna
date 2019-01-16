@@ -11,7 +11,7 @@ const languageDetector = {
   detect: callback => {
     return /*'en'; */ Localization.getLocalizationAsync().then(({ locale }) => {
       // console.log("locale from localization services", locale);
-      callback(locale);
+      callback(locale.includes("-") ? locale.split("-")[0] : locale);
     });
   },
   init: () => {},
