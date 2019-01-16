@@ -73,7 +73,7 @@ export class AboutScreen extends Component {
             `Ukraїner will share curious stories from obscure places, people, art, and food. Using what we’ve discovered, we will create a modern guide to Ukraine, translated into multiple languages. All we need is our loyal readers’ curiosity and trust.`
           )}
         </StyledText.Light>
-        <Title.H2>{t("Our team")}</Title.H2>
+        <Title>{t("Our team")}</Title>
         {teamData.map(
           ({ fotoSrc, name, role, description, talk, last }, key, array) => (
             <Person

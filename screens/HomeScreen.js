@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import { View, ScrollView, Text, Image, TouchableOpacity } from "react-native";
 import { inject, observer } from "mobx-react/native";
-import Header from "../components/Header";
+import { withNamespaces } from "react-i18next";
 
+import Title from "../components/Title";
+import StyledText from "../components/StyledText";
+import { AllStoriesContainer } from "./RegionsScreen";
+
+@withNamespaces(["home"], { wait: true })
 @inject("article")
 @observer
 export default class CatalogArticles extends Component {
@@ -18,14 +23,24 @@ export default class CatalogArticles extends Component {
   }
 
   render() {
-    const { catalogArticles } = this.state;
-
+    const {
+      t,
+      article,
+      navigation: { navigate }
+    } = this.props;
     return (
-      <ScrollView>
-        {catalogArticles.map(({ mainTitle, mainBg, id }) => (
-          <Article key={id} id={id} mainBg={mainBg} mainTitle={mainTitle} />
-        ))}
-      </ScrollView>
+      <View>
+        <Title>{t("Top stories")}</Title>
+        <StyledText.Light>
+          {t("Discover more than 200 breathtaking articles about Ukraine")}
+        </StyledText.Light>
+        <AllStoriesContainer
+          list={article.list}
+          onPress={id => {
+            navigate("article", { id });
+          }}
+        />
+      </View>
     );
   }
 }
