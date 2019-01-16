@@ -17,6 +17,9 @@ exports[`Article snapshot Article snapshot 1`] = `
           "reset": [Function],
           "setNavRef": [Function],
         },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
       },
     }
   }
@@ -35,6 +38,9 @@ exports[`Article snapshot Article snapshot 1`] = `
           "reset": [Function],
           "setNavRef": [Function],
         },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
       },
     }
   }
@@ -48,12 +54,36 @@ exports[`Article snapshot Article snapshot 1`] = `
           "allStores": [Circular],
         },
         "navigation": [Circular],
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
       },
       "goBack": [Function],
       "goTo": [Function],
       "ref": null,
       "reset": [Function],
       "setNavRef": [Function],
+    }
+  }
+  regions={
+    RegionsStore {
+      "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
+        "localization": LocalizationStore {
+          "allStores": [Circular],
+        },
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+        "regions": [Circular],
+      },
     }
   }
 >
@@ -69,6 +99,9 @@ exports[`Article snapshot Article snapshot 1`] = `
               "allStores": [Circular],
             },
             "navigation": [Circular],
+            "regions": RegionsStore {
+              "allStores": [Circular],
+            },
           },
           "goBack": [Function],
           "goTo": [Function],
@@ -176,7 +209,7 @@ exports[`Article snapshot Article snapshot 1`] = `
 `;
 
 exports[`Article snapshot renders ArticleScreen 1`] = `
-<LoadNamespace(ArticleScreen)>
+<LoadNamespace(inject-ArticleScreen-with-article)>
   <WithMergedOptions>
     <LoadNamespace
       i18n={
@@ -32444,5 +32477,5 @@ exports[`Article snapshot renders ArticleScreen 1`] = `
       </WithMergedOptions(NamespacesConsumerComponent)>
     </LoadNamespace>
   </WithMergedOptions>
-</LoadNamespace(ArticleScreen)>
+</LoadNamespace(inject-ArticleScreen-with-article)>
 `;

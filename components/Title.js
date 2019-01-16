@@ -2,9 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 const Title = ({ children, ...props }) => (
-  <Text style={[styles.title]} {...props}>
-    {children}
-  </Text>
+  <Text style={[styles.title, { ...props }]}>{children}</Text>
 );
 
 Title.H2 = ({ children, ...props }) => (
