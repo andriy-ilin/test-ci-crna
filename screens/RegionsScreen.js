@@ -5,11 +5,12 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
   StyleSheet,
   TouchableOpacity
 } from "react-native";
+
 import Title from "../components/Title";
+import Foto from "../components/Foto";
 import StyledText from "../components/StyledText";
 import Filter from "../icons/Filter";
 import FindBlack from "../icons/FindBlack";
@@ -83,17 +84,14 @@ const RegionsContainer = ({ list }) => (
   <ScrollView>
     {list.map(({ name, mainBg }) => (
       <View key={name} style={[styles.cardRegions]}>
-        <Image
-          style={{
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            position: "absolute",
-            borderRadius: 6
-          }}
-          resizeMode="cover"
-          source={{ uri: mainBg }}
+        <Foto
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          position="absolute"
+          borderRadius={6}
+          src={mainBg}
         />
         <StyledText.Bold color="#fff" fontSize={20} textTransform="capitalize">
           {name}
@@ -108,17 +106,14 @@ export const AllStoriesContainer = ({ list, onPress = () => {} }) => (
     {list.map(({ mainTitle, mainBg, id }) => (
       <TouchableOpacity key={mainTitle} onPress={() => onPress(id)}>
         <View style={[styles.cardAllStories]}>
-          <Image
-            style={{
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              position: "absolute",
-              borderRadius: 6
-            }}
-            resizeMode="cover"
-            source={{ uri: mainBg }}
+          <Foto
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            position="absolute"
+            borderRadius={6}
+            src={mainBg}
           />
           <StyledText.Bold
             color="#fff"

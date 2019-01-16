@@ -4,12 +4,13 @@ import {
   View,
   ScrollView,
   Text,
-  Image,
+  // Image,
   TouchableOpacity,
   StyleSheet
 } from "react-native";
 import { withNamespaces } from "react-i18next";
 
+import Foto from "../components/Foto";
 import Title from "../components/Title";
 import StyledText from "../components/StyledText";
 
@@ -35,22 +36,14 @@ export class ArticleScreen extends Component {
       <View style={[styles.container]}>
         <Title>{mainTitle}</Title>
         <ScrollView>
-          <Image
-            source={{ uri: mainBg }}
-            style={{ width: "100%", height: 252 }}
-            resizeMode="cover"
-          />
+          <Foto width={"100%"} height={252} src={mainBg} />
 
           {content.map(({ tag, value, tagNumber }) => (
             <View key={tagNumber}>
               {tag === "Text" ? (
                 <StyledText.Light>{value}</StyledText.Light>
               ) : tag === "Img" ? (
-                <Image
-                  source={{ uri: value.src }}
-                  style={{ width: "100%", height: 252 }}
-                  resizeMode="cover"
-                />
+                <Foto width={"100%"} height={252} src={value.src} />
               ) : (
                 <View />
               )}
