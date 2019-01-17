@@ -73,7 +73,12 @@ export class RegionsScreen extends Component {
             onPress={id => navigate("regionArticle", { id })}
           />
         ) : (
-          <AllStoriesContainer list={regions.listEntries} />
+          <AllStoriesContainer
+            list={regions.listEntries}
+            onPress={id => {
+              navigate("regionArticleId", { id });
+            }}
+          />
         )}
       </View>
     );

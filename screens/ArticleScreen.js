@@ -21,21 +21,25 @@ export class ArticleScreen extends Component {
   async componentDidMount() {
     const {
       article,
-      navigation: { state: { params: { id } = {} } = {} } = {}
+      navigation: { state: { routeName, params: { id } = {} } = {} } = {}
     } = this.props;
-
-    await article.getArticle(`/articles/${id}`, "articleData");
+    await article.getArticle(`/articles/${id}`, `${routeName}Data`);
   }
   render() {
     const {
+      navigation: {
+        state: { routeName }
+      }
+    } = this.props;
+    const {
       t,
-      article: { article: { mainTitle, mainBg, content = [] } } = {}
+      article: { [routeName]: { mainTitle, mainBg, content = [] } } = {}
     } = this.props;
 
     return (
       <View style={[styles.container]}>
-        <Title>{mainTitle}</Title>
         <ScrollView>
+          <Title>{mainTitle}</Title>
           <Foto width={"100%"} height={252} src={mainBg} />
 
           {content.map(({ tag, value, tagNumber }) => (

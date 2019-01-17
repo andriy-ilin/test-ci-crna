@@ -10,6 +10,7 @@ import TabBar from "../components/TabBar";
 import MenuScreen from "../screens/MenuScreen";
 import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
+import PartnersScreen from "../screens/PartnersScreen";
 import ContactsScreen from "../screens/ContactsScreen";
 import DonateScreen from "../screens/DonateScreen";
 import ShopScreen from "../screens/ShopScreen";
@@ -31,6 +32,9 @@ const HomeStackNavigator = createStackNavigator(
     },
     about: {
       screen: AboutScreen
+    },
+    partners: {
+      screen: PartnersScreen
     },
     contacts: {
       screen: ContactsScreen
@@ -79,6 +83,9 @@ const RegionsStackNavigator = createStackNavigator(
   {
     regions: {
       screen: RegionsScreen
+    },
+    regionArticleId: {
+      screen: ArticleScreen
     }
   },
   {
