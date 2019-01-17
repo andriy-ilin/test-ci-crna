@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
   },
   backNavigation: {
     width: 40,
+    paddingTop: 10,
+    paddingBottom: 10,
     alignItems: "center",
     justifyContent: "space-around"
   },
