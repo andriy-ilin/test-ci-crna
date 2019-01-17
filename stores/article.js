@@ -10,6 +10,7 @@ class ArticleStore extends BasicStore {
 
   @observable entities = {};
   @observable articleData = {};
+  @observable regionArticleIdData = {};
 
   @computed get list() {
     return Object.values(this.entities);
@@ -17,6 +18,9 @@ class ArticleStore extends BasicStore {
 
   @computed get article() {
     return toJS(this.articleData);
+  }
+  @computed get regionArticleId() {
+    return toJS(this.regionArticleIdData);
   }
 
   @action set(name, data) {
