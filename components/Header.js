@@ -57,15 +57,15 @@ export default class Header extends React.Component {
 }
 
 const DefaultLeftBlock = ({ navigation, mainRoute }) => (
-  <View style={[styles.leftBlock]}>
-    <TouchableOpacity
-      onPress={() =>
-        mainRoute ? navigation.navigate("menu") : navigation.goBack()
-      }
-    >
+  <TouchableOpacity
+    onPress={() =>
+      mainRoute ? navigation.navigate("menu") : navigation.goBack()
+    }
+  >
+    <View style={[styles.leftBlock]}>
       {mainRoute ? <MenuIcon /> : <LeftArrow />}
-    </TouchableOpacity>
-  </View>
+    </View>
+  </TouchableOpacity>
 );
 
 @withNamespaces(["home", "common"], { wait: true })
@@ -74,15 +74,15 @@ class DefaultRightBlock extends React.Component {
   render() {
     const { lng, i18n } = this.props;
     return (
-      <View style={[styles.rightBlock]}>
-        <TouchableOpacity
-          style={[styles.rightBlockView]}
-          onPress={() => i18n.changeLanguage(lng === "en" ? "de" : "en")}
-        >
+      <TouchableOpacity
+        style={[styles.rightBlock]}
+        onPress={() => i18n.changeLanguage(lng === "en" ? "de" : "en")}
+      >
+        <View style={[styles.rightBlockView]}>
           <DownArrow marginRight={5} />
           <Text>{lng.toUpperCase()}</Text>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -129,8 +129,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   },
   centerBlockWrapper: {},
-  leftBlock: {},
-  rightBlock: {},
+  leftBlock: {
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  rightBlock: {
+    paddingLeft: 10,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
   rightBlockView: {
     flexDirection: "row",
     alignItems: "center"
