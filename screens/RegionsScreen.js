@@ -6,7 +6,8 @@ import {
   ScrollView,
   Text,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  FlatList
 } from "react-native";
 
 import Title from "../components/Title";
@@ -53,41 +54,48 @@ export class RegionsScreen extends Component {
             </Title>
           </TouchableOpacity>
         </View>
-        <View style={[styles.filterIconWrapper]}>
-          <TouchableOpacity
-            onPress={() => this.setState({ filterTab: "filter" })}
-          >
-            <View style={{ paddingRight: 20 }}>
-              <Filter />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.setState({ filterTab: "find" })}
-          >
-            <FindBlack />
-          </TouchableOpacity>
-        </View>
-        {openTab === "regions" ? (
-          <RegionsContainer
-            list={regions.listRegions}
-            onPress={id => navigate("regionArticle", { id })}
-          />
-        ) : (
-          <AllStoriesContainer
-            list={regions.listEntries}
-            onPress={id => {
-              navigate("regionArticleId", { id });
-            }}
-          />
-        )}
+        <ScrollView>
+          <View style={[styles.filterIconWrapper]}>
+            <TouchableOpacity
+              onPress={() => this.setState({ filterTab: "filter" })}
+            >
+              <View style={{ paddingRight: 20 }}>
+                <Filter />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({ filterTab: "find" })}
+            >
+              <FindBlack />
+            </TouchableOpacity>
+          </View>
+
+          <View style={[openTab !== "regions" && { display: "none" }]}>
+            <RegionsContainer
+              list={regions.listRegions}
+              onPress={id => navigate("regionArticle", { id })}
+            />
+          </View>
+
+          <View style={[openTab === "regions" && { display: "none" }]}>
+            <AllStoriesContainer
+              list={regions.listEntries}
+              onPress={id => {
+                navigate("regionArticleId", { id });
+              }}
+            />
+          </View>
+        </ScrollView>
       </View>
     );
   }
 }
 
-const RegionsContainer = ({ list }) => (
-  <ScrollView>
-    {list.map(({ name, mainBg }) => (
+const RegionsContainer = ({ list = [] }) => (
+  <FlatList
+    data={list}
+    keyExtractor={({ name }) => name}
+    renderItem={({ item: { name, mainBg } }) => (
       <View key={name} style={[styles.cardRegions]}>
         <Foto
           top={0}
@@ -102,13 +110,15 @@ const RegionsContainer = ({ list }) => (
           {name}
         </StyledText.Bold>
       </View>
-    ))}
-  </ScrollView>
+    )}
+  />
 );
 
-export const AllStoriesContainer = ({ list, onPress = () => {} }) => (
-  <ScrollView>
-    {list.map(({ mainTitle, mainBg, id }) => (
+export const AllStoriesContainer = ({ list = [], onPress = () => {} }) => (
+  <FlatList
+    data={list}
+    keyExtractor={({ id }) => id}
+    renderItem={({ item: { mainTitle, mainBg, id } }) => (
       <TouchableOpacity key={mainTitle} onPress={() => onPress(id)}>
         <View style={[styles.cardAllStories]}>
           <Foto
@@ -129,8 +139,8 @@ export const AllStoriesContainer = ({ list, onPress = () => {} }) => (
           </StyledText.Bold>
         </View>
       </TouchableOpacity>
-    ))}
-  </ScrollView>
+    )}
+  />
 );
 
 const styles = StyleSheet.create({
