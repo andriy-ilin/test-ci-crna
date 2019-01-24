@@ -10,12 +10,16 @@ import TabBar from "../components/TabBar";
 import MenuScreen from "../screens/MenuScreen";
 import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
+import TeamScreen from "../screens/TeamScreen";
+import AuthorScreen from "../screens/AuthorScreen";
+import VideoScreen from "../screens/VideoScreen";
 import PartnersScreen from "../screens/PartnersScreen";
 import ContactsScreen from "../screens/ContactsScreen";
 import DonateScreen from "../screens/DonateScreen";
 import ShopScreen from "../screens/ShopScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import RegionsScreen from "../screens/RegionsScreen";
+import RegionArticlesScreen from "../screens/RegionArticlesScreen";
 import ArticleScreen from "../screens/ArticleScreen";
 
 const defaultNavigationOptions = props => ({
@@ -32,6 +36,15 @@ const HomeStackNavigator = createStackNavigator(
     },
     about: {
       screen: AboutScreen
+    },
+    team: {
+      screen: TeamScreen
+    },
+    author: {
+      screen: AuthorScreen
+    },
+    video: {
+      screen: VideoScreen
     },
     partners: {
       screen: PartnersScreen
@@ -83,6 +96,9 @@ const RegionsStackNavigator = createStackNavigator(
   {
     regions: {
       screen: RegionsScreen
+    },
+    regionArticles: {
+      screen: RegionArticlesScreen
     },
     regionArticleId: {
       screen: ArticleScreen
