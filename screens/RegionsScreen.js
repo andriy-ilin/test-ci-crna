@@ -15,6 +15,7 @@ import Foto from "../components/Foto";
 import StyledText from "../components/StyledText";
 import Filter from "../icons/Filter";
 import FindBlack from "../icons/FindBlack";
+import Loading from "../components/Loading";
 
 @withNamespaces(["regions"], { wait: true })
 @inject("regions")
@@ -73,7 +74,7 @@ export class RegionsScreen extends Component {
           <View style={[openTab !== "regions" && { display: "none" }]}>
             <RegionsContainer
               list={regions.listRegions}
-              onPress={id => navigate("regionArticle", { id })}
+              onPress={region => navigate("regionArticles", { region })}
             />
           </View>
 
@@ -91,25 +92,31 @@ export class RegionsScreen extends Component {
   }
 }
 
-const RegionsContainer = ({ list = [] }) => (
+const RegionsContainer = ({ list = [], onPress = () => {} }) => (
   <FlatList
     data={list}
     keyExtractor={({ name }) => name}
     renderItem={({ item: { name, mainBg } }) => (
-      <View key={name} style={[styles.cardRegions]}>
-        <Foto
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          position="absolute"
-          borderRadius={6}
-          src={mainBg}
-        />
-        <StyledText.Bold color="#fff" fontSize={20} textTransform="capitalize">
-          {name}
-        </StyledText.Bold>
-      </View>
+      <TouchableOpacity key={name} onPress={() => onPress(name)}>
+        <View key={name} style={[styles.cardRegions]}>
+          <Foto
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            position="absolute"
+            borderRadius={6}
+            src={mainBg}
+          />
+          <StyledText.Bold
+            color="#fff"
+            fontSize={20}
+            textTransform="capitalize"
+          >
+            {name}
+          </StyledText.Bold>
+        </View>
+      </TouchableOpacity>
     )}
   />
 );
