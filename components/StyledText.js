@@ -7,26 +7,26 @@ export class MonoText extends React.Component {
   }
 }
 
-const Default = ({ children, ...props }) => (
-  <View style={[styles.wrapper]}>
+const Default = ({ children, containerProps, ...props }) => (
+  <View style={[styles.wrapper, { ...containerProps }]}>
     <StyledText style={[styles.default, { ...props }]}>{children}</StyledText>
   </View>
 );
 
-const Light = ({ children, ...props }) => (
-  <View style={[styles.wrapper]}>
+const Light = ({ children, containerProps, ...props }) => (
+  <View style={[styles.wrapper, { ...containerProps }]}>
     <StyledText style={[styles.light, { ...props }]}>{children}</StyledText>
   </View>
 );
 
-const Medium = ({ children, ...props }) => (
-  <View style={[styles.wrapper]}>
+const Medium = ({ children, containerProps, ...props }) => (
+  <View style={[styles.wrapper, { ...containerProps }]}>
     <StyledText style={[styles.medium, { ...props }]}>{children}</StyledText>
   </View>
 );
 
-const Bold = ({ children, ...props }) => (
-  <View style={[styles.wrapper]}>
+const Bold = ({ children, containerProps, ...props }) => (
+  <View style={[styles.wrapper, { ...containerProps }]}>
     <StyledText style={[styles.bold, { ...props }]}>{children}</StyledText>
   </View>
 );
