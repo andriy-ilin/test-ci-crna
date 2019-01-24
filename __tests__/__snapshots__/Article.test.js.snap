@@ -20,6 +20,12 @@ exports[`Article snapshot Article snapshot 1`] = `
         "regions": RegionsStore {
           "allStores": [Circular],
         },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
       },
     }
   }
@@ -41,6 +47,12 @@ exports[`Article snapshot Article snapshot 1`] = `
         "regions": RegionsStore {
           "allStores": [Circular],
         },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
       },
     }
   }
@@ -55,6 +67,12 @@ exports[`Article snapshot Article snapshot 1`] = `
         },
         "navigation": [Circular],
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
           "allStores": [Circular],
         },
       },
@@ -83,6 +101,66 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": [Circular],
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
+      },
+    }
+  }
+  team={
+    TeamStore {
+      "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
+        "localization": LocalizationStore {
+          "allStores": [Circular],
+        },
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "team": [Circular],
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
+      },
+    }
+  }
+  video={
+    VideoStore {
+      "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
+        "localization": LocalizationStore {
+          "allStores": [Circular],
+        },
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": [Circular],
       },
     }
   }
@@ -100,6 +178,12 @@ exports[`Article snapshot Article snapshot 1`] = `
             },
             "navigation": [Circular],
             "regions": RegionsStore {
+              "allStores": [Circular],
+            },
+            "team": TeamStore {
+              "allStores": [Circular],
+            },
+            "video": VideoStore {
               "allStores": [Circular],
             },
           },
@@ -209,7 +293,7 @@ exports[`Article snapshot Article snapshot 1`] = `
 `;
 
 exports[`Article snapshot renders ArticleScreen 1`] = `
-<LoadNamespace(inject-ArticleScreen-with-article)>
+<LoadNamespace(inject-inject-ArticleScreen-with-team-with-article)>
   <WithMergedOptions>
     <LoadNamespace
       i18n={
@@ -32477,5 +32561,5 @@ exports[`Article snapshot renders ArticleScreen 1`] = `
       </WithMergedOptions(NamespacesConsumerComponent)>
     </LoadNamespace>
   </WithMergedOptions>
-</LoadNamespace(inject-ArticleScreen-with-article)>
+</LoadNamespace(inject-inject-ArticleScreen-with-team-with-article)>
 `;
