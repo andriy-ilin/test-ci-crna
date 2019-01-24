@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.10.0...v0.11.0) (2019-01-24)
+
+
+### Bug Fixes
+
+* make bigger place for touch on Header and MenuScreen ([d9cc042](https://github.com/andriy-ilin/test-ci-crna/commit/d9cc042))
+
+
+### Features
+
+* add AuthorScreen to project ([47adcc8](https://github.com/andriy-ilin/test-ci-crna/commit/47adcc8))
+* add Carousel component for horizontall scrollview ([9485c75](https://github.com/andriy-ilin/test-ci-crna/commit/9485c75))
+* add Foto component which use rn-expo-image-cache ([6dca3d4](https://github.com/andriy-ilin/test-ci-crna/commit/6dca3d4))
+* add Link component for openURL in web browser ([2601a4f](https://github.com/andriy-ilin/test-ci-crna/commit/2601a4f))
+* add Loading component which use ActivityIndicator ([29686f0](https://github.com/andriy-ilin/test-ci-crna/commit/29686f0))
+* add Partners screen ([eb6e9fe](https://github.com/andriy-ilin/test-ci-crna/commit/eb6e9fe))
+* add ProfileImage component for authors ([c1b526d](https://github.com/andriy-ilin/test-ci-crna/commit/c1b526d))
+* add RegionArticlesScreen to project ([8123ee1](https://github.com/andriy-ilin/test-ci-crna/commit/8123ee1))
+* add Swiper component for slideshow on articleScreen ([494a61b](https://github.com/andriy-ilin/test-ci-crna/commit/494a61b))
+* add Switch component which use in articleScreen ([30505e5](https://github.com/andriy-ilin/test-ci-crna/commit/30505e5))
+* add TeamScreen to project ([8f958a7](https://github.com/andriy-ilin/test-ci-crna/commit/8f958a7))
+* add Video component for show video from youtube in WebView ([f3625d9](https://github.com/andriy-ilin/test-ci-crna/commit/f3625d9))
+* add VideoScreen to project ([1252dd0](https://github.com/andriy-ilin/test-ci-crna/commit/1252dd0))
+* divide articleScreen for home and regions tab ([5548a8d](https://github.com/andriy-ilin/test-ci-crna/commit/5548a8d))
+* improve HomeScreen according to design ([1f20fa6](https://github.com/andriy-ilin/test-ci-crna/commit/1f20fa6))
+* use Switch with Text, Slider, Authors, Video in ArticleScreen ([3a78bae](https://github.com/andriy-ilin/test-ci-crna/commit/3a78bae))
+
+
+
 <a name="0.10.0"></a>
 # [0.10.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.9.0...v0.10.0) (2019-01-16)
 
