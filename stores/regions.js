@@ -1,4 +1,4 @@
-import { observable, computed, action } from "mobx";
+import { observable, computed, action, toJS } from "mobx";
 import api from "../services/api";
 import { entitiesFromFB } from "./utils";
 
@@ -10,9 +10,16 @@ class RegionsStore extends BasicStore {
 
   @observable entities = {};
   @observable regions = {};
+  @observable filterArticles = "";
+
+  @action regionArticles(filterArticles) {
+    return Object.values(toJS(this.entities)).filter(
+      ({ region }) => region === filterArticles
+    );
+  }
 
   @computed get listEntries() {
-    return Object.values(this.entities);
+    return Object.values(toJS(this.entities));
   }
 
   @computed get listRegions() {
@@ -28,8 +35,10 @@ class RegionsStore extends BasicStore {
 
   @action
   async getArticle(refName) {
+    this.set("loading", true);
     const data = await api.fetchAllByEntityName(refName);
     this.set("entities", data);
+    this.set("loading", false);
   }
 
   @action
