@@ -1,19 +1,53 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Image } from "react-native-expo-image-cache";
+import React, { Component } from "react";
+import { View, Text, StyleSheet, Image as ImageDefault } from "react-native";
+import { BlurView } from "expo";
+import { LinearGradient } from "expo";
+import Loading from "./Loading";
 
-const Foto = ({ resizeMode = "cover", preview = { uri }, src, ...props }) => (
-  <Image
-    style={{
+class Foto extends Component {
+  state = {
+    loading: false
+  };
+  render() {
+    const {
+      resizeMode = "cover",
+      preview = { uri },
+      src,
       ...props
-    }}
-    resizeMode={resizeMode}
-    uri={src}
-    preview={preview}
-    tint="light"
-    transitionDuration={0}
-  />
-);
+    } = this.props;
+    const { loading } = this.state;
+    return src ? (
+      <BlurView tint="light" intensity={50} style={[{ ...props }]}>
+        {loading && (
+          <Loading position="absolute" top={0} bottom={0} left={0} right={0} />
+        )}
+
+        <ImageDefault
+          style={{
+            ...props
+          }}
+          onLoadStart={() => this.setState({ loading: true })}
+          onLoadEnd={() => this.setState({ loading: false })}
+          source={{
+            uri: src,
+            cache: "force-cache"
+          }}
+          resizeMode={resizeMode}
+        />
+      </BlurView>
+    ) : (
+      <LinearGradient
+        colors={["#7db242", "#77d9a0"]}
+        start={[0, 1]}
+        end={[1, 1]}
+        style={{
+          opacity: 0.9,
+          ...props
+        }}
+      />
+    );
+  }
+}
 
 export default Foto;
 
