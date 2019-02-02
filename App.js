@@ -49,6 +49,8 @@ class App extends React.Component {
         require("./assets/images/downArrow.png"),
         require("./assets/images/rightArrow.png"),
         require("./assets/images/leftArrow.png"),
+        require("./assets/images/favoriteFull.png"),
+        require("./assets/images/favoriteEmpty.png"),
         require("./assets/images/about/first.png"),
         require("./assets/images/about/second.png"),
         require("./assets/images/about/quote.png"),
