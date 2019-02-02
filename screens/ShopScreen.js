@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import Title from "../components/Title";
 import Foto from "../components/Foto";
+import Loading from "../components/Loading";
 import StyledText from "../components/StyledText";
 import Cart from "../icons/Cart";
 
@@ -27,18 +28,19 @@ export class ShopScreen extends Component {
     const {
       t,
       navigation: { navigate },
-      shop: { list = [] } = {}
+      shop: { list = [] } = {},
+      shop
     } = this.props;
+    if (shop.loading) return <Loading />;
     return (
       <View style={[styles.container]}>
-        <View style={[styles.wrapperTitle]}>
-          <Title flexWrap="wrap">{t("Shop")}</Title>
-          <View style={[styles.iconWrap]}>
-            <Cart />
+        <ScrollView>
+          <View style={[styles.wrapperTitle]}>
+            <Title flexWrap="wrap">{t("Shop")}</Title>
           </View>
-        </View>
-        <StyledText.Light>{t("Long Description")}</StyledText.Light>
-        <ItemsList list={list} onPress={id => navigate("product", { id })} />
+          <StyledText.Light>{t("Long Description")}</StyledText.Light>
+          <ItemsList list={list} onPress={id => navigate("product", { id })} />
+        </ScrollView>
       </View>
     );
   }
@@ -109,11 +111,6 @@ const styles = StyleSheet.create({
   wrapperTitle: {
     flexDirection: "row",
     justifyContent: "space-between"
-  },
-  iconWrap: {
-    paddingRight: 20,
-    paddingTop: 20,
-    paddingBottom: 20
   },
   imgWrapper: {
     width: 163,
