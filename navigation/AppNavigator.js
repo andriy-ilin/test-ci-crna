@@ -17,6 +17,7 @@ import PartnersScreen from "../screens/PartnersScreen";
 import ContactsScreen from "../screens/ContactsScreen";
 import DonateScreen from "../screens/DonateScreen";
 import ShopScreen from "../screens/ShopScreen";
+import ProductScreen from "../screens/ProductScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import RegionsScreen from "../screens/RegionsScreen";
 import RegionArticlesScreen from "../screens/RegionArticlesScreen";
@@ -74,6 +75,9 @@ const ShopStackNavigator = createStackNavigator(
   {
     shop: {
       screen: ShopScreen
+    },
+    product: {
+      screen: ProductScreen
     }
   },
   {
