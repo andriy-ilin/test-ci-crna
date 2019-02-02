@@ -6,13 +6,13 @@ const AddToFavorites = ({ imageStyle, active = false, ...props }) => (
     {active ? (
       <Image
         source={require("../assets/images/favoriteFull.png")}
-        style={{ width: 11, height: 15, ...imageStyle }}
+        style={{ width: 14, height: 18, ...imageStyle }}
         resizeMode="cover"
       />
     ) : (
       <Image
         source={require("../assets/images/favoriteEmpty.png")}
-        style={{ width: 11, height: 15, ...imageStyle }}
+        style={{ width: 14, height: 18, ...imageStyle }}
         resizeMode="cover"
       />
     )}
