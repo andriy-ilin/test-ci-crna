@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
+import { LinearGradient } from "expo";
 import { withNamespaces } from "react-i18next";
 import { slugify } from "transliteration";
 
@@ -20,16 +21,21 @@ import Swiper from "../components/Swiper";
 import ProfileImage from "../components/ProfileImage";
 import Loading from "../components/Loading";
 import Video from "../components/Video";
+import Button from "../components/Button";
+
+import AddToFavorites from "../icons/AddToFavorites";
 
 @withNamespaces(["home", "common"], { wait: true })
+@inject("favorite")
 @inject("article")
 @inject("team")
 @observer
 export class ArticleScreen extends Component {
-  state = {};
+  state = { favorites: [] };
   async componentDidMount() {
     const {
       article,
+      favorite,
       team,
       navigation: {
         navigate,
@@ -39,6 +45,8 @@ export class ArticleScreen extends Component {
 
     await article.getArticle(`/articles/${id}`, `${routeName}Data`);
     const data = await team.getRoles("/role/en");
+    const favorites = await favorite.getStorage("@ukrainer:favorites");
+    this.setState({ favorites: JSON.parse(favorites) || [] });
   }
 
   async componentDidUpdate({
@@ -46,11 +54,14 @@ export class ArticleScreen extends Component {
   }) {
     const {
       article,
+      favorite,
       navigation: {
         state: { routeName, params: { id: nextId } = {} } = {}
       } = {}
     } = this.props;
     if (prevId !== nextId) {
+      const favorites = await favorite.getStorage("@ukrainer:favorites");
+      this.setState({ favorites: JSON.parse(favorites) || [] });
       this.scrollView.scrollTo({ y: 0, animated: true });
       return await article.getArticle(
         `/articles/${nextId}`,
@@ -71,11 +82,13 @@ export class ArticleScreen extends Component {
       team: { listEntries = [] } = {},
       team,
       article,
+      favorite,
       article: {
-        [routeName]: { mainTitle, mainBg, content = [] },
+        [routeName]: { id, mainTitle, mainBg, content = [], region },
         [routeName]: route
       } = {}
     } = this.props;
+    const { favorites = [] } = this.state;
     if (team.loading) return <Loading />;
     if (article.loading) return <Loading />;
     return (
@@ -85,7 +98,66 @@ export class ArticleScreen extends Component {
             this.scrollView = scrollView;
           }}
         >
-          <Title>{mainTitle}</Title>
+          <Title paddingBottom={0}>{mainTitle}</Title>
+          <View style={[styles.wrapperRerionFavorite]}>
+            <View
+              style={{
+                position: "relative",
+                borderRadius: 12,
+                overflow: "hidden",
+                marginTop: 10,
+                marginBottom: 10,
+                alignSelf: "flex-start"
+              }}
+            >
+              <LinearGradient
+                colors={["#7db242", "#77d9a0"]}
+                start={[0, 1]}
+                end={[1, 1]}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0
+                }}
+              />
+              <StyledText.Bold
+                color="#fff"
+                fontSize={13}
+                lineHeight={13}
+                flexWrap="wrap"
+                textTransform="capitalize"
+                containerProps={{
+                  paddingTop: 5,
+                  paddingLeft: 7,
+                  paddingRight: 7,
+                  paddingBottom: 5,
+                  alignSelf: "flex-start"
+                }}
+              >
+                {region}
+              </StyledText.Bold>
+            </View>
+            <TouchableOpacity
+              style={[styles.addToFavorites]}
+              onPress={async () => {
+                if (!favorites.includes(id)) {
+                  await favorite.saveToStorage(id);
+                  return this.setState({ favorites: [...favorites, id] });
+                } else {
+                  const list = favorites.filter(item => item !== id);
+                  this.setState({
+                    favorites: list
+                  });
+                  return favorite.deleteFromStorage(id);
+                }
+              }}
+            >
+              <AddToFavorites active={favorites.includes(id)} />
+            </TouchableOpacity>
+          </View>
+
           <Foto width={"100%"} height={252} marginBottom={20} src={mainBg} />
 
           {content.map(({ tag, value = [], tagNumber }, key) => (
@@ -204,6 +276,19 @@ const Author = ({ onPress, name = [], photo, job }) => (
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  wrapperRerionFavorite: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 20,
+    marginBottom: 10,
+    marginTop: 10
+  },
+  addToFavorites: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingRight: 20,
+    paddingLeft: 20
   },
   authorBoxWrapper: {
     width: 100,

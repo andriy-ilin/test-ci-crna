@@ -12,6 +12,7 @@ class ArticleStore extends BasicStore {
   @observable entities = {};
   @observable articleData = {};
   @observable regionArticleIdData = {};
+  @observable favoriteArticleIdData = {};
   // @observable authorData = {};
 
   @computed get list() {
@@ -30,6 +31,10 @@ class ArticleStore extends BasicStore {
   }
   @computed get regionArticleId() {
     return toJS(this.regionArticleIdData);
+  }
+
+  @computed get favoriteArticleId() {
+    return toJS(this.favoriteArticleIdData);
   }
 
   @action set(name, data) {

@@ -18,6 +18,7 @@ import ContactsScreen from "../screens/ContactsScreen";
 import DonateScreen from "../screens/DonateScreen";
 import ShopScreen from "../screens/ShopScreen";
 import ProductScreen from "../screens/ProductScreen";
+import CartScreen from "../screens/CartScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import RegionsScreen from "../screens/RegionsScreen";
 import RegionArticlesScreen from "../screens/RegionArticlesScreen";
@@ -78,6 +79,9 @@ const ShopStackNavigator = createStackNavigator(
     },
     product: {
       screen: ProductScreen
+    },
+    cart: {
+      screen: CartScreen
     }
   },
   {
@@ -89,6 +93,9 @@ const FavoriteStackNavigator = createStackNavigator(
   {
     favorite: {
       screen: FavoriteScreen
+    },
+    favoriteArticleId: {
+      screen: ArticleScreen
     }
   },
   {
