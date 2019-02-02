@@ -11,6 +11,7 @@ import { inject, observer } from "mobx-react/native";
 import { withNamespaces } from "react-i18next";
 
 import Logo from "../icons/Logo";
+import Cart from "../icons/Cart";
 import MenuIcon from "../icons/Menu";
 import LeftArrow from "../icons/LeftArrow";
 import DownArrow from "../icons/DownArrow";
@@ -21,6 +22,7 @@ const TITLE_OFFSET_CENTER_ALIGN = Platform.OS === "ios" ? 70 : 56;
 const TITLE_OFFSET_LEFT_ALIGN = Platform.OS === "ios" ? 20 : 56;
 
 const WHITE_LIST_ROUTE = ["home", "shop", "donate", "favorite", "regions"];
+const WHITE_LIST_SHOP_ROUTE = ["shop", "cart", "product"];
 
 export default class Header extends React.Component {
   static get HEIGHT() {
@@ -48,7 +50,10 @@ export default class Header extends React.Component {
           </CenterBlockWrapper>
 
           <RightBlockWrapper>
-            <RightBlock />
+            <RightBlock
+              navigation={navigation}
+              routeName={navigation.state.routeName}
+            />
           </RightBlockWrapper>
         </View>
       </View>
@@ -72,8 +77,8 @@ const DefaultLeftBlock = ({ navigation, mainRoute }) => (
 @observer
 class DefaultRightBlock extends React.Component {
   render() {
-    const { lng, i18n } = this.props;
-    return (
+    const { lng, i18n, navigation, routeName } = this.props;
+    return !WHITE_LIST_SHOP_ROUTE.includes(routeName) ? (
       <TouchableOpacity
         style={[styles.rightBlock]}
         onPress={() => i18n.changeLanguage(lng === "en" ? "de" : "en")}
@@ -81,6 +86,30 @@ class DefaultRightBlock extends React.Component {
         <View style={[styles.rightBlockView]}>
           <DownArrow marginRight={5} />
           <Text>{lng.toUpperCase()}</Text>
+        </View>
+      </TouchableOpacity>
+    ) : (
+      <CartComponent navigation={navigation} />
+    );
+  }
+}
+
+@inject("shop")
+@observer
+class CartComponent extends React.Component {
+  render() {
+    const { navigation, shop } = this.props;
+    return (
+      <TouchableOpacity onPress={() => navigation.navigate("cart")}>
+        <View style={[stylesCart.wrapper]}>
+          <View style={[stylesCart.iconWrap]}>
+            <Cart />
+          </View>
+          {shop.cartQuantity > 0 && (
+            <View style={[stylesCart.quantityWrapper]}>
+              <Text style={[stylesCart.quantity]}>{shop.cartQuantity}</Text>
+            </View>
+          )}
         </View>
       </TouchableOpacity>
     );
@@ -144,4 +173,31 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   centerBlock: {}
+});
+
+const stylesCart = StyleSheet.create({
+  wrapper: {
+    paddingLeft: 16,
+    paddingRight: 4,
+    paddingTop: 20,
+    paddingBottom: 20
+  },
+  iconWrap: {},
+  quantityWrapper: {
+    position: "absolute",
+    bottom: 17,
+    right: 0,
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: "#77d9a0",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  quantity: {
+    fontSize: 7,
+    fontWeight: "bold",
+    color: "#fff"
+  }
 });
