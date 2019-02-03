@@ -6,6 +6,9 @@ exports[`Article snapshot Article snapshot 1`] = `
     ArticleStore {
       "allStores": Object {
         "article": [Circular],
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": LocalizationStore {
           "allStores": [Circular],
         },
@@ -18,6 +21,42 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
+          "allStores": [Circular],
+        },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
+      },
+    }
+  }
+  favorite={
+    FavoriteStore {
+      "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
+        "favorite": [Circular],
+        "localization": LocalizationStore {
+          "allStores": [Circular],
+        },
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
           "allStores": [Circular],
         },
         "team": TeamStore {
@@ -35,6 +74,9 @@ exports[`Article snapshot Article snapshot 1`] = `
         "article": ArticleStore {
           "allStores": [Circular],
         },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": [Circular],
         "navigation": NavigationStore {
           "allStores": [Circular],
@@ -45,6 +87,9 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
           "allStores": [Circular],
         },
         "team": TeamStore {
@@ -62,11 +107,17 @@ exports[`Article snapshot Article snapshot 1`] = `
         "article": ArticleStore {
           "allStores": [Circular],
         },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": LocalizationStore {
           "allStores": [Circular],
         },
         "navigation": [Circular],
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
           "allStores": [Circular],
         },
         "team": TeamStore {
@@ -89,6 +140,9 @@ exports[`Article snapshot Article snapshot 1`] = `
         "article": ArticleStore {
           "allStores": [Circular],
         },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": LocalizationStore {
           "allStores": [Circular],
         },
@@ -101,6 +155,42 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": [Circular],
+        "shop": ShopStore {
+          "allStores": [Circular],
+        },
+        "team": TeamStore {
+          "allStores": [Circular],
+        },
+        "video": VideoStore {
+          "allStores": [Circular],
+        },
+      },
+    }
+  }
+  shop={
+    ShopStore {
+      "allStores": Object {
+        "article": ArticleStore {
+          "allStores": [Circular],
+        },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
+        "localization": LocalizationStore {
+          "allStores": [Circular],
+        },
+        "navigation": NavigationStore {
+          "allStores": [Circular],
+          "goBack": [Function],
+          "goTo": [Function],
+          "ref": null,
+          "reset": [Function],
+          "setNavRef": [Function],
+        },
+        "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": [Circular],
         "team": TeamStore {
           "allStores": [Circular],
         },
@@ -116,6 +206,9 @@ exports[`Article snapshot Article snapshot 1`] = `
         "article": ArticleStore {
           "allStores": [Circular],
         },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": LocalizationStore {
           "allStores": [Circular],
         },
@@ -128,6 +221,9 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
           "allStores": [Circular],
         },
         "team": [Circular],
@@ -143,6 +239,9 @@ exports[`Article snapshot Article snapshot 1`] = `
         "article": ArticleStore {
           "allStores": [Circular],
         },
+        "favorite": FavoriteStore {
+          "allStores": [Circular],
+        },
         "localization": LocalizationStore {
           "allStores": [Circular],
         },
@@ -155,6 +254,9 @@ exports[`Article snapshot Article snapshot 1`] = `
           "setNavRef": [Function],
         },
         "regions": RegionsStore {
+          "allStores": [Circular],
+        },
+        "shop": ShopStore {
           "allStores": [Circular],
         },
         "team": TeamStore {
@@ -173,11 +275,17 @@ exports[`Article snapshot Article snapshot 1`] = `
             "article": ArticleStore {
               "allStores": [Circular],
             },
+            "favorite": FavoriteStore {
+              "allStores": [Circular],
+            },
             "localization": LocalizationStore {
               "allStores": [Circular],
             },
             "navigation": [Circular],
             "regions": RegionsStore {
+              "allStores": [Circular],
+            },
+            "shop": ShopStore {
               "allStores": [Circular],
             },
             "team": TeamStore {
@@ -293,7 +401,7 @@ exports[`Article snapshot Article snapshot 1`] = `
 `;
 
 exports[`Article snapshot renders ArticleScreen 1`] = `
-<LoadNamespace(inject-inject-ArticleScreen-with-team-with-article)>
+<LoadNamespace(inject-inject-inject-ArticleScreen-with-team-with-article-with-favorite)>
   <WithMergedOptions>
     <LoadNamespace
       i18n={
@@ -32561,5 +32669,5 @@ exports[`Article snapshot renders ArticleScreen 1`] = `
       </WithMergedOptions(NamespacesConsumerComponent)>
     </LoadNamespace>
   </WithMergedOptions>
-</LoadNamespace(inject-inject-ArticleScreen-with-team-with-article)>
+</LoadNamespace(inject-inject-inject-ArticleScreen-with-team-with-article-with-favorite)>
 `;
