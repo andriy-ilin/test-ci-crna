@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.0"></a>
+# [0.12.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.11.0...v0.12.0) (2019-02-03)
+
+
+### Features
+
+* add Cart icon to async load resources ([c4a2728](https://github.com/andriy-ilin/test-ci-crna/commit/c4a2728))
+* add Cart screen to prj ([acf4778](https://github.com/andriy-ilin/test-ci-crna/commit/acf4778))
+* add FavoriteScreen and Favorite article screen ([a4fe335](https://github.com/andriy-ilin/test-ci-crna/commit/a4fe335))
+* add product list to shop screen ([8f6cd47](https://github.com/andriy-ilin/test-ci-crna/commit/8f6cd47))
+* add ProductScreen to prj ([1092553](https://github.com/andriy-ilin/test-ci-crna/commit/1092553))
+* AddToFavorites icon to preload in App ([5210a0f](https://github.com/andriy-ilin/test-ci-crna/commit/5210a0f))
+* change header icon lang to cart icon on Shop screen ([6d24529](https://github.com/andriy-ilin/test-ci-crna/commit/6d24529))
+* FormPicker for choose on product screen ([f69a1f3](https://github.com/andriy-ilin/test-ci-crna/commit/f69a1f3))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.10.0...v0.11.0) (2019-01-24)
 
