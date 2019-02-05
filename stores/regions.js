@@ -42,8 +42,8 @@ class RegionsStore extends BasicStore {
   }
 
   @action
-  async getRegions() {
-    await this.getArticle("/catalog/en");
+  async getRegions(value) {
+    await this.getArticle(value);
     const listRegions = this.listEntries;
     let data = listRegions.reduce(
       (prev, { region, mainBg }) => ({ ...prev, [region]: mainBg }),

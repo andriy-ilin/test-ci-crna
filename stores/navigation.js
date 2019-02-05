@@ -1,4 +1,5 @@
 import { autorun } from "mobx";
+import { AsyncStorage } from "react-native";
 import { NavigationActions, StackActions } from "react-navigation";
 
 import BasicStore from "./BasicStore";
@@ -10,10 +11,10 @@ class NavigationStore extends BasicStore {
     let firstRun = true;
 
     setTimeout(() => {
-      autorun(() => {
+      autorun(async () => {
         const user = null;
         const screen = user ? "home" : "article";
-
+        await this.allStores.lang.setCurrentLangFromStorage();
         if (!firstRun) {
           this.goTo(screen);
         }
