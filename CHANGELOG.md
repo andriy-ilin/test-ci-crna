@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.12.0...v0.13.0) (2019-02-05)
+
+
+### Bug Fixes
+
+* change call scrollTo function in Carousel ([7af7eba](https://github.com/andriy-ilin/test-ci-crna/commit/7af7eba))
+
+
+### Features
+
+* add langStore with methods for set and get current lang ([681af4c](https://github.com/andriy-ilin/test-ci-crna/commit/681af4c))
+* add modal with list langs for change in Header ([5aeed07](https://github.com/andriy-ilin/test-ci-crna/commit/5aeed07))
+* use localization for async loading data articles and catalog ([c847ed6](https://github.com/andriy-ilin/test-ci-crna/commit/c847ed6))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.11.0...v0.12.0) (2019-02-03)
 
