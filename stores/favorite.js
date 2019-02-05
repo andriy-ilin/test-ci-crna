@@ -13,16 +13,16 @@ class FavoriteStore extends BasicStore {
   @observable favoritesEntities = [];
 
   @computed get list() {
-    return Object.values(this.entities);
+    return Object.values(toJS(this.entities));
   }
   @computed get listFavorites() {
-    return Object.values(this.favoritesEntities);
+    return Object.values(toJS(this.favoritesEntities));
   }
 
   @action
-  async getFavoritesArticles() {
+  async getFavoritesArticles(value) {
     this.set("loading", true);
-    await this.getArticles(`/catalog/en`);
+    await this.getArticles(value);
     const favorites = await this.getStorage("@ukrainer:favorites");
     this.set("loading", false);
 
@@ -46,7 +46,8 @@ class FavoriteStore extends BasicStore {
           : [...JSON.parse(favorites), id]
         : [id];
       await AsyncStorage.setItem("@ukrainer:favorites", JSON.stringify(list));
-      this.getFavoritesArticles();
+      const article = this.list.filter(({ id: idList }) => idList === id);
+      this.set("favoritesEntities", [...this.favoritesEntities, ...article]);
     } catch (error) {
       console.log(">>>----error save storage", error);
     }
