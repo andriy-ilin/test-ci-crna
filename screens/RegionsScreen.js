@@ -27,8 +27,16 @@ export class RegionsScreen extends Component {
   };
 
   async componentDidMount() {
-    const { regions } = this.props;
-    await regions.getRegions();
+    const { regions, lng } = this.props;
+    await regions.getRegions(`/catalog/${lng}`);
+  }
+
+  async componentDidUpdate({ lng }) {
+    const { lng: nextLng } = this.props;
+    if (lng !== nextLng) {
+      const { regions } = this.props;
+      await regions.getRegions(`/catalog/${nextLng}`);
+    }
   }
 
   render() {

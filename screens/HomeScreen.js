@@ -24,6 +24,7 @@ const { width } = Dimensions.get("window");
 
 @withNamespaces(["home"], { wait: true })
 @inject("article")
+@inject("lang")
 @observer
 export default class CatalogArticles extends Component {
   state = {
@@ -33,8 +34,8 @@ export default class CatalogArticles extends Component {
   };
 
   async componentDidMount() {
-    const { article } = this.props;
-    await article.getTop(`/catalog/en`);
+    const { article, lang, lng } = this.props;
+    await article.getTop(`/catalog/${lng}`);
     const len = article.top.length;
     this.setState({
       loaded: true,
@@ -44,6 +45,23 @@ export default class CatalogArticles extends Component {
         Math.floor(len / 2) + 1
       )
     });
+  }
+
+  async componentDidUpdate({ lng }) {
+    const { lng: nextLng } = this.props;
+    if (lng !== nextLng) {
+      const { article } = this.props;
+      await article.getTop(`/catalog/${nextLng}`);
+      const len = article.top.length;
+      this.setState({
+        loaded: true,
+        catalogArticles: article.top.slice(0, Math.floor(len / 3)),
+        moreArticles: article.top.slice(
+          Math.floor(len / 3) + 1,
+          Math.floor(len / 2) + 1
+        )
+      });
+    }
   }
 
   render() {
