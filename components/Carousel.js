@@ -11,9 +11,10 @@ const { width } = Dimensions.get("window");
 
 class Carousel extends Component {
   componentDidMount() {
-    setTimeout(() => {
-      this.scrollView.scrollTo({ x: -20 });
-    }, 1); // scroll view position fix
+    setTimeout(
+      () => this.scrollView && this.scrollView.scrollTo({ x: -20 }),
+      1
+    ); // scroll view position fix
   }
 
   render() {
