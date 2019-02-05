@@ -29,6 +29,7 @@ import AddToFavorites from "../icons/AddToFavorites";
 @inject("favorite")
 @inject("article")
 @inject("team")
+@inject("lang")
 @observer
 export class ArticleScreen extends Component {
   state = { favorites: [] };
@@ -37,15 +38,24 @@ export class ArticleScreen extends Component {
       article,
       favorite,
       team,
+      lang,
       navigation: {
         navigate,
         state: { routeName, params: { id } = {} } = {}
-      } = {}
+      } = {},
+      lng
     } = this.props;
 
     await article.getArticle(`/articles/${id}`, `${routeName}Data`);
-    const data = await team.getRoles("/role/en");
+    const data = await team.getRoles(`/role/${lng}`);
     const favorites = await favorite.getStorage("@ukrainer:favorites");
+
+    const {
+      article: {
+        [routeName]: { subLinks }
+      }
+    } = this.props;
+    await lang.setArticlesTranslateList(subLinks);
     this.setState({ favorites: JSON.parse(favorites) || [] });
   }
 
@@ -62,7 +72,7 @@ export class ArticleScreen extends Component {
     if (prevId !== nextId) {
       const favorites = await favorite.getStorage("@ukrainer:favorites");
       this.setState({ favorites: JSON.parse(favorites) || [] });
-      this.scrollView.scrollTo({ y: 0, animated: true });
+      this.scrollView && this.scrollView.scrollTo({ y: 0, animated: true });
       return await article.getArticle(
         `/articles/${nextId}`,
         `${routeName}Data`

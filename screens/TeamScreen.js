@@ -29,10 +29,20 @@ export class TeamScreen extends Component {
   async componentDidMount() {
     const {
       team,
-      navigation: { navigate }
+      navigation: { navigate },
+      lng
     } = this.props;
-    const data = await team.getRoles("/role/en");
+    const data = await team.getRoles(`/role/${lng}`);
   }
+
+  async componentDidUpdate({ lng }) {
+    const { lng: nextLng } = this.props;
+    if (lng !== nextLng) {
+      const { team } = this.props;
+      await team.getRoles(`/role/${nextLng}`);
+    }
+  }
+
   render() {
     const {
       t,

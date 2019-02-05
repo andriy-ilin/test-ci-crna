@@ -33,8 +33,15 @@ export class FavoriteScreen extends Component {
   }
 
   async componentDidMount() {
-    const { favorite } = this.props;
-    await favorite.getFavoritesArticles();
+    const { favorite, lng } = this.props;
+    await favorite.getFavoritesArticles(`/catalog/${lng}`);
+  }
+
+  async componentDidUpdate({ lng }) {
+    const { lng: nextLng, favorite } = this.props;
+    if (lng !== nextLng) {
+      await favorite.getFavoritesArticles(`/catalog/${nextLng}`);
+    }
   }
 
   render() {

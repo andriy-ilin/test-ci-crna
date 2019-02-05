@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   FlatList,
-  Dimensions,
-  Picker
+  Dimensions
 } from "react-native";
 import { LinearGradient } from "expo";
 
@@ -39,7 +38,6 @@ export class ProductScreen extends Component {
         state: { routeName, params: { id } = {} } = {}
       } = {}
     } = this.props;
-    console.log("ID", id);
     this.setState({ loading: true });
     await shop.getProducts(`/shopItems/${id}`, "product");
     return this.setState({ loading: false });
@@ -78,7 +76,7 @@ export class ProductScreen extends Component {
       } = {}
     } = this.props;
 
-    if (!slider.length) return <Loading />;
+    if (shop.loading) return <Loading />;
     // Todo: check loading
     const renderItem = data =>
       data.map((el = "") => ({
