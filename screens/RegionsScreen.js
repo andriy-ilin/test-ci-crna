@@ -15,6 +15,7 @@ import Foto from "../components/Foto";
 import StyledText from "../components/StyledText";
 import Filter from "../icons/Filter";
 import FindBlack from "../icons/FindBlack";
+import MarkerMap from "../icons/MarkerMap";
 import Loading from "../components/Loading";
 
 @withNamespaces(["regions"], { wait: true })
@@ -95,6 +96,12 @@ export class RegionsScreen extends Component {
             />
           </View>
         </ScrollView>
+        <TouchableOpacity
+          style={styles.mapButton}
+          onPress={() => this.props.navigation.navigate("map")}
+        >
+          <MarkerMap />
+        </TouchableOpacity>
       </View>
     );
   }
@@ -204,6 +211,17 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1
+  },
+  mapButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "rgba(119, 217, 160, .9)",
+    position: "absolute",
+    bottom: 50,
+    right: 30,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
 

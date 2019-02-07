@@ -8,6 +8,7 @@ import {
 import Header from "../components/Header";
 import TabBar from "../components/TabBar";
 import MenuScreen from "../screens/MenuScreen";
+import MapScreen from "../screens/MapScreen";
 import HomeScreen from "../screens/HomeScreen";
 import AboutScreen from "../screens/AboutScreen";
 import TeamScreen from "../screens/TeamScreen";
@@ -145,9 +146,15 @@ const MainNavigator = createStackNavigator(
     },
     menu: {
       screen: MenuScreen
+    },
+    map: {
+      screen: MapScreen
     }
   },
-  { defaultNavigationOptions: { header: null } }
+  {
+    // initialRouteName: "map",
+    defaultNavigationOptions: { header: null }
+  }
 );
 
 export default createAppContainer(MainNavigator);
