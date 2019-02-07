@@ -7,27 +7,47 @@ export class MonoText extends React.Component {
   }
 }
 
-const Default = ({ children, containerProps, ...props }) => (
+const Default = ({ children, containerProps, numberOfLines, ...props }) => (
   <View style={[styles.wrapper, { ...containerProps }]}>
-    <StyledText style={[styles.default, { ...props }]}>{children}</StyledText>
+    <StyledText
+      numberOfLines={numberOfLines}
+      style={[styles.default, { ...props }]}
+    >
+      {children}
+    </StyledText>
   </View>
 );
 
-const Light = ({ children, containerProps, ...props }) => (
+const Light = ({ children, containerProps, numberOfLines, ...props }) => (
   <View style={[styles.wrapper, { ...containerProps }]}>
-    <StyledText style={[styles.light, { ...props }]}>{children}</StyledText>
+    <StyledText
+      numberOfLines={numberOfLines}
+      style={[styles.light, { ...props }]}
+    >
+      {children}
+    </StyledText>
   </View>
 );
 
-const Medium = ({ children, containerProps, ...props }) => (
+const Medium = ({ children, containerProps, numberOfLines, ...props }) => (
   <View style={[styles.wrapper, { ...containerProps }]}>
-    <StyledText style={[styles.medium, { ...props }]}>{children}</StyledText>
+    <StyledText
+      numberOfLines={numberOfLines}
+      style={[styles.medium, { ...props }]}
+    >
+      {children}
+    </StyledText>
   </View>
 );
 
-const Bold = ({ children, containerProps, ...props }) => (
+const Bold = ({ children, containerProps, numberOfLines, ...props }) => (
   <View style={[styles.wrapper, { ...containerProps }]}>
-    <StyledText style={[styles.bold, { ...props }]}>{children}</StyledText>
+    <StyledText
+      numberOfLines={numberOfLines}
+      style={[styles.bold, { ...props }]}
+    >
+      {children}
+    </StyledText>
   </View>
 );
 
