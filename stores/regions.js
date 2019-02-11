@@ -10,16 +10,67 @@ class RegionsStore extends BasicStore {
 
   @observable entities = {};
   @observable regions = {};
+  @observable entriesRegionsListName = {};
   @observable filterArticles = "";
+  @observable selectedRegions = [];
+  @observable findArticles = "";
+
+  @action
+  addToSelectedRegions(value) {
+    if (this.selectedRegionsList.includes(value)) {
+      return this.set(
+        "selectedRegions",
+        this.selectedRegionsList.filter(item => item !== value)
+      );
+    }
+    return this.set("selectedRegions", [...this.selectedRegionsList, value]);
+  }
+
+  @action
+  addFindArticles(value) {
+    return this.set("findArticles", value);
+  }
+
+  @computed get selectedRegionsList() {
+    return toJS(this.selectedRegions);
+  }
+  @computed get findArticlesList() {
+    return toJS(this.findArticles);
+  }
+
+  @action clearSelectedRegionsList() {
+    return this.set("selectedRegions", []);
+  }
+  @action clearFindArticlesList() {
+    return this.set("findArticles", "");
+  }
 
   @action regionArticles(filterArticles) {
     return Object.values(toJS(this.entities)).filter(
       ({ region }) => region === filterArticles
     );
   }
+  @computed get regionsListName() {
+    return [...toJS(this.entriesRegionsListName)];
+  }
 
   @computed get listEntries() {
     return Object.values(toJS(this.entities));
+  }
+
+  @computed get listWithFilterAndFind() {
+    return Object.values(toJS(this.entities)).filter(
+      ({ region, mainTitle }) => {
+        return this.selectedRegionsList.length > 0
+          ? this.findArticlesList
+            ? this.selectedRegionsList.includes(region) &&
+              mainTitle.includes(this.findArticlesList)
+            : this.selectedRegionsList.includes(region)
+          : !!this.findArticlesList
+          ? mainTitle.includes(this.findArticlesList)
+          : true;
+      }
+    );
   }
 
   @computed get listRegions() {
@@ -50,6 +101,11 @@ class RegionsStore extends BasicStore {
       {}
     );
     return this.set("regions", data);
+  }
+  @action
+  async getRegionsName() {
+    const data = await api.fetchAllByEntityName("/regions");
+    this.set("entriesRegionsListName", data);
   }
 }
 
