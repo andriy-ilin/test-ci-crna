@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.15.0...v0.16.0) (2019-02-11)
+
+
+### Bug Fixes
+
+* regionScreen onPress title close filterTab ([079973b](https://github.com/andriy-ilin/test-ci-crna/commit/079973b))
+
+
+### Features
+
+* add filter and search to videoScreen ([c3e8086](https://github.com/andriy-ilin/test-ci-crna/commit/c3e8086))
+
+
+
 <a name="0.15.0"></a>
 # [0.15.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.14.0...v0.15.0) (2019-02-11)
 
