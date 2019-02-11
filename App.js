@@ -54,6 +54,7 @@ class App extends React.Component {
         require("./assets/images/markerMap.png"),
         require("./assets/images/close.png"),
         require("./assets/images/selected.png"),
+        require("./assets/images/searchGray.png"),
         require("./assets/images/about/first.png"),
         require("./assets/images/about/second.png"),
         require("./assets/images/about/quote.png"),
