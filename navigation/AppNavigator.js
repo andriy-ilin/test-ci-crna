@@ -130,7 +130,7 @@ const ListsNavigator = createBottomTabNavigator(
     regions: RegionsStackNavigator
   },
   {
-    initialRouteName: "regions",
+    initialRouteName: "home",
 
     defaultNavigationOptions: ({ navigation }) => ({
       tabBarVisible: true,
