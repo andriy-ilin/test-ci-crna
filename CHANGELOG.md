@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.14.0"></a>
+# [0.14.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.13.0...v0.14.0) (2019-02-11)
+
+
+### Features
+
+* add close and markerMap icon to async load resources ([933857a](https://github.com/andriy-ilin/test-ci-crna/commit/933857a))
+* add Map screen with default data resources ([a1855b5](https://github.com/andriy-ilin/test-ci-crna/commit/a1855b5))
+* add numberOfLines to props in StyledText ([c408e3d](https://github.com/andriy-ilin/test-ci-crna/commit/c408e3d))
+
+
+
 <a name="0.13.0"></a>
 # [0.13.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.12.0...v0.13.0) (2019-02-05)
 
