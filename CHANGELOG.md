@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.15.0"></a>
+# [0.15.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.14.0...v0.15.0) (2019-02-11)
+
+
+### Features
+
+* add PlaceholderSearchIcon to async load resources ([529958f](https://github.com/andriy-ilin/test-ci-crna/commit/529958f))
+* add SelectedIcon to async load resources ([9fd22b2](https://github.com/andriy-ilin/test-ci-crna/commit/9fd22b2))
+* find and filter articles on regionsScreen ([9f0c2d7](https://github.com/andriy-ilin/test-ci-crna/commit/9f0c2d7))
+
+
+
 <a name="0.14.0"></a>
 # [0.14.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.13.0...v0.14.0) (2019-02-11)
 
