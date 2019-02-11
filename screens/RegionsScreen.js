@@ -60,13 +60,17 @@ export class RegionsScreen extends Component {
       <View style={[styles.wrapper]}>
         <View style={[styles.tabWrapper]}>
           <TouchableOpacity
-            onPress={() => this.setState({ openTab: "regions" })}
+            onPress={() =>
+              this.setState({ openTab: "regions", filterTab: null })
+            }
           >
             <Title color={openTab !== "regions" ? "#d8d8d8" : undefined}>
               {t("Regions")}
             </Title>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.setState({ openTab: "all" })}>
+          <TouchableOpacity
+            onPress={() => this.setState({ openTab: "all", filterTab: null })}
+          >
             <Title color={openTab !== "all" ? "#d8d8d8" : undefined}>
               {t("All stories")}
             </Title>
