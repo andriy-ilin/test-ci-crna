@@ -1,6 +1,7 @@
 import { autorun } from "mobx";
 import { AsyncStorage } from "react-native";
 import { NavigationActions, StackActions } from "react-navigation";
+import { registerForPushNotificationsAsync } from "../helpers/pushNotification";
 
 import BasicStore from "./BasicStore";
 
@@ -14,6 +15,7 @@ class NavigationStore extends BasicStore {
       autorun(async () => {
         const user = null;
         const screen = user ? "home" : "article";
+        await registerForPushNotificationsAsync();
         await this.allStores.lang.setCurrentLangFromStorage();
         if (!firstRun) {
           this.goTo(screen);

@@ -10,6 +10,28 @@ class ApiService {
       .ref(ref)
       .once("value")
       .then(res => res.val());
+
+  create = ({ data, link }) => {
+    const date = new Date();
+    const key = this.fb
+      .database()
+      .ref(link)
+      .push().key;
+
+    return this.fb
+      .database()
+      .ref(`${link}/${key}`)
+      .set({ ...data, id: key, dataAdd: date.toISOString() });
+  };
+
+  createWithFullLink = ({ data, link, id }) => {
+    const date = new Date();
+
+    return this.fb
+      .database()
+      .ref(link)
+      .set({ ...data, id, dataAdd: date.toISOString() });
+  };
 }
 
 export default new ApiService();
