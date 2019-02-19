@@ -11,9 +11,11 @@ import {
   FlatList,
   Dimensions,
   Picker,
-  Modal
+  Modal,
+  TextInput
 } from "react-native";
 import { LinearGradient } from "expo";
+import { TextInputMask } from "react-native-masked-text";
 
 import Title from "../components/Title";
 import Button from "../components/Button";
@@ -32,12 +34,86 @@ const { width } = Dimensions.get("window");
 @observer
 export class CartScreen extends Component {
   state = {
-    successModal: false
+    successModal: false,
+    phone: "",
+    email: "",
+    name: "",
+    address: "",
+    message: "",
+    errorStatus: true,
+    error: {},
+    touched: false
   };
+
+  validationForm = async () => {
+    const { phone, email, name, error, touched, errorStatus } = this.state;
+    if (this.state.phone === "") {
+      await this.setState({
+        error: { ...this.state.error, phone: "This is required field" }
+      });
+    } else {
+      await this.setState({ error: { ...this.state.error, phone: undefined } });
+    }
+
+    if (this.state.email === "") {
+      await this.setState({
+        error: { ...this.state.error, email: "This is required field" }
+      });
+    } else {
+      await this.setState({ error: { ...this.state.error, email: undefined } });
+    }
+
+    if (this.state.name === "") {
+      await this.setState({
+        error: { ...this.state.error, name: "This is required field" }
+      });
+    } else {
+      {
+        await this.setState({
+          error: { ...this.state.error, name: undefined }
+        });
+      }
+    }
+
+    const regExpEmail = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(
+      this.state.email
+    );
+    if (!regExpEmail)
+      await this.setState({
+        error: { ...this.state.error, email: "Email is not valid" }
+      });
+
+    const regExpPhone = /\+38 \(\d\d\d\) \d\d\d \d\d \d\d/.test(
+      this.state.phone
+    );
+    if (!regExpPhone)
+      await this.setState({
+        error: { ...this.state.error, phone: "Phone is not valid" }
+      });
+
+    if (
+      !this.state.error.phone &&
+      !this.state.error.name &&
+      !this.state.error.email
+    ) {
+      await this.setState({ errorStatus: false });
+    }
+  };
+
   componentDidMount() {
     this.props.shop.calcTotal();
   }
   render() {
+    const {
+      phone,
+      email,
+      name,
+      address,
+      message,
+      touched,
+      errorStatus,
+      error
+    } = this.state;
     const {
       t,
       navigation: { navigate, state: { routeName, params: { id } = {} } = {} },
@@ -104,18 +180,102 @@ export class CartScreen extends Component {
               </View>
             )
           )}
-          <View style={[styles.totalWrapper]}>
-            <StyledText.Bold>Total</StyledText.Bold>
-            <StyledText.Bold>{shop.getTotal} ₴</StyledText.Bold>
-          </View>
-          <Button
-            onPress={() => {
-              console.log("shop.cartProduct", shop.cartProduct);
-              this.setState({ successModal: true });
-            }}
-          >
-            {t("Check out")}
-          </Button>
+          {shop.cartProduct.length > 0 && (
+            <View>
+              <View style={[styles.totalWrapper]}>
+                <StyledText.Bold>Total</StyledText.Bold>
+                <StyledText.Bold>{shop.getTotal} ₴</StyledText.Bold>
+              </View>
+              <StyledText.Bold>Shipment details</StyledText.Bold>
+
+              <TextInput
+                style={[styles.input]}
+                onChangeText={name =>
+                  this.setState({ name }, () => this.validationForm())
+                }
+                defaultValue={name}
+                value={name}
+                underlineColorAndroid="transparent"
+                placeholder="Input your name"
+              />
+              {touched && errorStatus && !!error.name && (
+                <Text style={[styles.errorInput]}>{error.name}</Text>
+              )}
+              <TextInputMask
+                style={[styles.input]}
+                onChangeText={phone =>
+                  this.setState({ phone }, () => this.validationForm())
+                }
+                defaultValue={phone}
+                value={phone}
+                underlineColorAndroid="transparent"
+                placeholder="Input your phone"
+                ref={"refCard"}
+                type={"custom"}
+                options={{
+                  mask: "+38 (999) 999 99 99"
+                }}
+                keyboardType="phone-pad"
+              />
+              {touched && errorStatus && !!error.phone && (
+                <Text style={[styles.errorInput]}>{error.phone}</Text>
+              )}
+
+              <TextInput
+                keyboardType="email-address"
+                style={[styles.input]}
+                onChangeText={email =>
+                  this.setState({ email }, () => this.validationForm())
+                }
+                defaultValue={email}
+                value={email}
+                underlineColorAndroid="transparent"
+                placeholder="Input your email"
+              />
+              {touched && errorStatus && !!error.email && (
+                <Text style={[styles.errorInput]}>{error.email}</Text>
+              )}
+              <TextInput
+                keyboardType="email-address"
+                style={[styles.input]}
+                onChangeText={address => this.setState({ address })}
+                defaultValue={address}
+                value={address}
+                underlineColorAndroid="transparent"
+                placeholder="Input your address"
+              />
+              <TextInput
+                style={[styles.input, styles.textarea]}
+                multiline={true}
+                numberOfLines={4}
+                onChangeText={message => this.setState({ message })}
+                defaultValue={message}
+                value={message}
+                underlineColorAndroid="transparent"
+                placeholder="Write details"
+              />
+
+              <Button
+                onPress={() => {
+                  this.setState({ touched: true }, () => this.validationForm());
+                  if (!errorStatus) {
+                    console.log("shop.cartProduct", {
+                      product: shop.cartProduct,
+                      address,
+                      phone,
+                      email,
+                      name,
+                      address,
+                      message
+                    });
+                    this.setState({ successModal: true });
+                  }
+                }}
+              >
+                {t("Check out")}
+              </Button>
+            </View>
+          )}
         </ScrollView>
       </View>
     );
@@ -258,6 +418,26 @@ const styles = StyleSheet.create({
   },
   modalSuccessWrapper: {
     width: "100%"
+  },
+  input: {
+    height: 40,
+    borderColor: "#cdd3de",
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingLeft: 10,
+    marginLeft: 25,
+    marginRight: 25,
+    marginBottom: 10
+  },
+  textarea: {
+    height: 160,
+    marginBottom: 25
+  },
+  errorInput: {
+    marginLeft: 25,
+    color: "red",
+    fontWeight: "300",
+    marginBottom: 15
   }
 });
 
