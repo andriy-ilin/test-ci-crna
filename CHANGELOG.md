@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.17.0"></a>
+# [0.17.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.16.0...v0.17.0) (2019-02-24)
+
+
+### Features
+
+* add shipment details validation on checkout ([cdbdb98](https://github.com/andriy-ilin/test-ci-crna/commit/cdbdb98))
+* send device token for notification service ([567a65d](https://github.com/andriy-ilin/test-ci-crna/commit/567a65d))
+* send order after validation fields on CartScreen ([ececc1b](https://github.com/andriy-ilin/test-ci-crna/commit/ececc1b))
+
+
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.15.0...v0.16.0) (2019-02-11)
 
