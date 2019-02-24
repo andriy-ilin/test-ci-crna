@@ -152,8 +152,53 @@ const MainNavigator = createStackNavigator(
     }
   },
   {
-    // initialRouteName: "map",
-    defaultNavigationOptions: { header: null }
+    defaultNavigationOptions: { header: null },
+    mode: "card",
+    navigationOptions: params => ({
+      gesturesEnabled: true,
+      gesturesDirection: "inverted"
+    }),
+    transitionConfig: () => ({
+      screenInterpolator: sceneProps => {
+        const { layout, position, scene } = sceneProps;
+        const { index } = scene;
+        const width = layout.initWidth;
+
+        return {
+          opacity: position.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [0, 1, 0]
+          }),
+          transform: [
+            {
+              translateX: position.interpolate({
+                inputRange: [index - 1, index, index + 1],
+                outputRange: [-width, 0, width]
+              })
+            }
+          ]
+        };
+      },
+      headerTitleInterpolator: sceneProps => {
+        const { layout, position, scene } = sceneProps;
+        const { index } = scene;
+
+        return {
+          opacity: position.interpolate({
+            inputRange: [index - 1, index, index + 1],
+            outputRange: [0, 1, 0]
+          }),
+          transform: [
+            {
+              translateX: position.interpolate({
+                inputRange: [index - 1, index, index + 1],
+                outputRange: [-50, 0, 50]
+              })
+            }
+          ]
+        };
+      }
+    })
   }
 );
 
