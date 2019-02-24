@@ -12,6 +12,7 @@ import { MapView } from "expo";
 import Title from "../components/Title";
 import StyledText from "../components/StyledText";
 import Video from "../components/Video";
+import Link from "../components/Link";
 import CloseIcon from "../icons/CloseIcon";
 import LeftArrow from "../icons/LeftArrow";
 
@@ -27,7 +28,7 @@ const KorostyshivCanyon = require("../assets/images/map/korostyshivCanyon.png");
 
 const { width, height } = Dimensions.get("window");
 
-const CARD_HEIGHT = height / 3;
+const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = width - 50;
 
 export default class screens extends Component {
@@ -221,7 +222,6 @@ export default class screens extends Component {
       });
       return { scale, opacity };
     });
-
     return (
       <View style={styles.container}>
         <MapView
@@ -293,7 +293,7 @@ export default class screens extends Component {
             )
           )}
         </Animated.ScrollView>
-        {this.state.overlayImage && (
+        {false && this.state.overlayImage && (
           <Animated.Image
             resizeMode="cover"
             style={{
@@ -320,11 +320,12 @@ export default class screens extends Component {
                 style={{
                   flexDirection: "row",
                   justifyContent: "flex-start",
-                  alignItems: "center"
+                  alignItems: "center",
+                  paddingLeft: 10
                 }}
               >
                 <LeftArrow />
-                <StyledText.Medium
+                <StyledText.Light
                   containerProps={{
                     paddingLeft: 10,
                     paddingTop: 0,
@@ -332,30 +333,31 @@ export default class screens extends Component {
                   }}
                 >
                   Back
-                </StyledText.Medium>
+                </StyledText.Light>
               </View>
             </TouchableOpacity>
+            <Title>{this.state.transition.title}</Title>
 
             <Image
               source={this.state.transition.image}
-              style={[styles.transitionImage, { opacity: 0 }]}
+              style={[styles.transitionImage, { opacity: 0, display: "none" }]}
               ref={tImage => (this.tImage = tImage)}
               resizeMode="cover"
             />
-            <View style={{ position: "absolute", top: 90, left: 0 }}>
-              <Video src={this.state.transition.video} />
-            </View>
 
+            <Video src={this.state.transition.video} />
             <View style={{ flex: 2 }}>
-              <Title>{this.state.transition.title}</Title>
               <StyledText.Light
                 containerProps={{
                   paddingTop: 0,
-                  paddingBottom: 0
+                  paddingBottom: 20
                 }}
               >
                 {this.state.transition.description}
               </StyledText.Light>
+              <Link url={this.state.transition.mapUrl}>
+                <Text>Open in Google maps </Text>
+              </Link>
             </View>
           </Animated.View>
         )}
@@ -384,19 +386,15 @@ const Card = ({ index, onPress, refFn, image, title, description }) => (
       <View style={styles.textContent}>
         <StyledText.Bold
           fontSize={14}
-          containerProps={{ paddingLeft: 0, paddingTop: 10, paddingBottom: 3 }}
-          numberOfLines={1}
+          containerProps={{
+            paddingLeft: 12,
+            paddingTop: 12,
+            paddingBottom: 0
+          }}
+          numberOfLines={2}
         >
           {title}
         </StyledText.Bold>
-        <StyledText.Light
-          numberOfLines={1}
-          fontSize={12}
-          containerProps={{ paddingLeft: 0, paddingTop: 0, paddingBottom: 5 }}
-          // numberOfLines={1} style={styles.cardtitle}>
-        >
-          {description}
-        </StyledText.Light>
       </View>
     </View>
   </TouchableOpacity>
@@ -410,8 +408,8 @@ const styles = StyleSheet.create({
     opacity: 0
   },
   transitionContainer: {
-    backgroundColor: "#FFF",
-    padding: 10
+    backgroundColor: "#FFF"
+    // padding: 10
   },
   transitionImage: {
     width: "100%",
@@ -429,8 +427,7 @@ const styles = StyleSheet.create({
   },
   card: {
     borderRadius: 8,
-
-    padding: 10,
+    // paddingBottom: 10,
     elevation: 2,
     backgroundColor: "#FFF",
     marginHorizontal: 10,
@@ -443,7 +440,7 @@ const styles = StyleSheet.create({
     overflow: "hidden"
   },
   cardImage: {
-    flex: 3,
+    flex: 4,
     width: "100%",
     height: "100%",
     alignSelf: "center"
@@ -480,10 +477,11 @@ const styles = StyleSheet.create({
     borderColor: "rgba(119, 217, 160, .5)"
   },
   closeMapButton: {
-    // width: 26,
-    // height: 26,
-    padding: 5,
-    borderRadius: 3,
+    width: 28,
+    height: 28,
+
+    // padding: 5,
+    borderRadius: 14,
     backgroundColor: "rgba(255, 255, 255, .8)",
     position: "absolute",
     top: 50,
@@ -504,7 +502,9 @@ const dataMarkers = [
     description:
       "In the Bukovynian Carpathians 5 white domes were hidden, which provided control of the air border of the USSR. The remnants of the station with the call of Pamir are still crocheted by the summit of Mount Tomnatyk on the border with Romania.",
     video: "https://www.youtube.com/embed/c6QLFf6liZo",
-    image: Pamir
+    image: Pamir,
+    mapUrl:
+      "https://www.google.com/maps/search/Pamir+on+Mount+Tomnatyk/@39.0000315,71.9824904,14z/data=!3m1!4b1"
   },
   {
     coordinate: {
@@ -516,7 +516,9 @@ const dataMarkers = [
     description:
       "From the residence of the Metropolitan to the UNESCO World Heritage and Education Facility. Unique ensemble of buildings of Chernivtsi National University.",
     video: "https://www.youtube.com/embed/annlesFomPs",
-    image: ChernivtsiUniversity
+    image: ChernivtsiUniversity,
+    mapUrl:
+      "https://www.google.com/maps/place/%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B2%D0%B5%D1%86%D1%8C%D0%BA%D0%B8%D0%B9+%D0%BD%D0%B0%D1%86%D1%96%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9+%D1%83%D0%BD%D1%96%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%82%D0%B5%D1%82+%D1%96%D0%BC%D0%B5%D0%BD%D1%96+%D0%AE%D1%80%D1%96%D1%8F+%D0%A4%D0%B5%D0%B4%D1%8C%D0%BA%D0%BE%D0%B2%D0%B8%D1%87%D0%B0/@48.2969306,25.9219931,17z/data=!3m1!4b1!4m5!3m4!1s0x4734062770c7b427:0x70798ec25d36654d!8m2!3d48.2969271!4d25.9241818"
   },
   {
     coordinate: {
@@ -527,7 +529,9 @@ const dataMarkers = [
     description:
       "The Carpathian narrow-gauge in Benefit is one of four operating in Ukraine. The train, which took mountain forests for more than a hundred years, in 2003 got the name 'Carpathian tram' and began to actively carry even tourists.",
     video: "https://www.youtube.com/embed/Nr2FJ7T2d7A",
-    image: CarpathianTram
+    image: CarpathianTram,
+    mapUrl:
+      "https://www.google.com/maps/place/%D0%9A%D0%B0%D1%80%D0%BF%D0%B0%D1%82%D1%81%D1%8C%D0%BA%D0%B8%D0%B9+%D1%82%D1%80%D0%B0%D0%BC%D0%B2%D0%B0%D0%B9%D1%87%D0%B8%D0%BA/@48.9345523,23.9087897,17z/data=!3m1!4b1!4m5!3m4!1s0x473a05560fc5a9f1:0x6828fc96d455590f!8m2!3d48.9345488!4d23.9109784"
   },
   {
     coordinate: {
@@ -538,7 +542,9 @@ const dataMarkers = [
     description:
       "Dzharylgach is the largest uninhabited island of Ukraine. It has an elongated shape that resembles a natural wave break. In this corner of silence and virtually untouched nature in Tavria, conditions for rest in tents are created.",
     video: "https://www.youtube.com/embed/6KqBRFSlbR8",
-    image: Dzharylgach
+    image: Dzharylgach,
+    mapUrl:
+      "https://www.google.com/maps/place/%D0%94%D0%B6%D0%B0%D1%80%D0%B8%D0%BB%D0%B3%D0%B0%D1%87/@46.0371869,32.5346298,10z/data=!3m1!4b1!4m5!3m4!1s0x40c115aaa4b6c09d:0x44391ac93e365224!8m2!3d46.03372!4d32.8974944"
   },
   {
     coordinate: {
@@ -560,7 +566,9 @@ const dataMarkers = [
     description:
       "Khotyn fortress for centuries defended an important trade and customs point over the Dniester plain. Here at different times lived Turkish and Polish soldiers, Cossacks and Hetman, and today this place attracts tourists from all over the world.",
     video: "https://www.youtube.com/embed/HlBDPQLUpHE",
-    image: Khotyn
+    image: Khotyn,
+    mapUrl:
+      "https://www.google.com/maps/place/%D0%A5%D0%BE%D1%82%D0%B8%D0%BD,+%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B2%D0%B5%D1%86%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C/@48.5084725,26.4578351,13z/data=!3m1!4b1!4m5!3m4!1s0x4733944a622a3ceb:0x13412835dea98852!8m2!3d48.5097106!4d26.4903334"
   },
   {
     coordinate: {
@@ -571,7 +579,9 @@ const dataMarkers = [
     description:
       "Genichesk lake is located on the north shoal Arabatskaya Arrow.This lake is salty and rich in valuable minerals. It has long been extracted from the kitchen salt and used in medicine and cosmetology. When the lava becomes concentrated in the summer, the lake is rosy. Smooth rustic salt sparkles on the shores of sunny days. To see the pink lake, tourists and photographers come from everywhere",
     video: "https://www.youtube.com/embed/v=y_u5X3eaZLo",
-    image: GenicheskLake
+    image: GenicheskLake,
+    mapUrl:
+      "https://www.google.com/maps/search/Genichesk+lake/@46.0360503,34.7781492,11.16z"
   },
   {
     coordinate: {
@@ -583,7 +593,9 @@ const dataMarkers = [
     description:
       "On the colorful lakes of Tavriya, the ancient tradition of salt extraction has been preserved by phased evaporation. Take a look at the water supply palette of the company that grows the salt crystals under the bright southern sun.",
     video: "https://www.youtube.com/embed/3QbhrkzFx7g",
-    image: Heroic
+    image: Heroic,
+    mapUrl:
+      "https://www.google.com/maps/place/46%C2%B018'15.0%22N+32%C2%B024'44.4%22E/@46.1864899,32.0562974,9.94z/data=!4m5!3m4!1s0x0:0x0!8m2!3d46.3041777!4d32.4123315"
   },
   {
     coordinate: {
@@ -594,7 +606,9 @@ const dataMarkers = [
     description:
       "Korostyshiv Canyon - a thrown granite quarry in Polissya, which turned into a deep lake, surrounded by carved rocks. Pine trees, spruce and birch trees grow on top of a stone, creating strange landscapes.",
     video: "https://www.youtube.com/embed/6tqy6S75bEM",
-    image: KorostyshivCanyon
+    image: KorostyshivCanyon,
+    mapUrl:
+      "https://www.google.com/maps/place/%D0%9A%D0%B0%D0%BD%D1%8C%D0%B9%D0%BE%D0%BD/@50.3150515,29.0910003,17z/data=!3m1!4b1!4m5!3m4!1s0x472c8239091e68f1:0xe2a85a4c99ea33e4!8m2!3d50.3151088!4d29.0931168"
   }
 ];
 
