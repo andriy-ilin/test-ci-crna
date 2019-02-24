@@ -129,10 +129,8 @@ export class CartScreen extends Component {
               </Title>
               <Button
                 onPress={() => {
-                  console.log("shop.cartProduct", shop.cartProduct);
                   shop.clear();
                   this.setState({ successModal: false });
-
                   navigate("shop");
                 }}
               >
@@ -169,10 +167,7 @@ export class CartScreen extends Component {
                   id={id}
                   quantity={quantity}
                   changeQuantity={(id, sign) => shop.changeQuantity(id, sign)}
-                  onPress={value => {
-                    console.log("onPress value", value);
-                    navigate("product", { id: value });
-                  }}
+                  onPress={value => navigate("product", { id: value })}
                 />
                 <View style={{ paddingLeft: 20 }}>
                   <Line />
@@ -180,7 +175,7 @@ export class CartScreen extends Component {
               </View>
             )
           )}
-          {shop.cartProduct.length > 0 && (
+          {shop.cartProduct.length > 0 ? (
             <View>
               <View style={[styles.totalWrapper]}>
                 <StyledText.Bold>Total</StyledText.Bold>
@@ -256,11 +251,12 @@ export class CartScreen extends Component {
               />
 
               <Button
-                onPress={() => {
-                  this.setState({ touched: true }, () => this.validationForm());
+                onPress={async () => {
+                  await this.setState({ touched: true }, () =>
+                    this.validationForm()
+                  );
                   if (!errorStatus) {
-                    console.log("shop.cartProduct", {
-                      product: shop.cartProduct,
+                    await shop.sendOrder({
                       address,
                       phone,
                       email,
@@ -268,13 +264,15 @@ export class CartScreen extends Component {
                       address,
                       message
                     });
-                    this.setState({ successModal: true });
+                    return this.setState({ successModal: true });
                   }
                 }}
               >
                 {t("Check out")}
               </Button>
             </View>
+          ) : (
+            <StyledText.Light>No items in cart yet</StyledText.Light>
           )}
         </ScrollView>
       </View>

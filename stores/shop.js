@@ -136,6 +136,21 @@ class ShopStore extends BasicStore {
 
     return this.set("total", total);
   }
+
+  @action async sendOrder({ address, email, phone, name, message }) {
+    await api.create({
+      link: "orders",
+      data: {
+        product: this.cartProduct,
+        total: this.total,
+        address,
+        email,
+        phone,
+        name,
+        message
+      }
+    });
+  }
 }
 
 export default ShopStore;
