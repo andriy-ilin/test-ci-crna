@@ -6,13 +6,13 @@ const FavoriteTabBar = ({ imageStyle, active = false, ...props }) => (
     {active ? (
       <Image
         source={require("../assets/images/tabBar/favoriteActive.png")}
-        style={{ width: 30, height: 28, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     ) : (
       <Image
         source={require("../assets/images/tabBar/favoriteInactive.png")}
-        style={{ width: 30, height: 28, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     )}

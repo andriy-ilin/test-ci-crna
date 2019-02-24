@@ -6,13 +6,13 @@ const HomeTabBar = ({ imageStyle, active = false, ...props }) => (
     {active ? (
       <Image
         source={require("../assets/images/tabBar/homeActive.png")}
-        style={{ width: 23, height: 19, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     ) : (
       <Image
         source={require("../assets/images/tabBar/homeInactive.png")}
-        style={{ width: 23, height: 19, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     )}
