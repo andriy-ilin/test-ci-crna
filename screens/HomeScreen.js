@@ -84,14 +84,20 @@ export default class CatalogArticles extends Component {
           </StyledText.Light>
           <Carousel
             data={catalogArticles}
-            renderItem={({ mainTitle, mainBg, id, region }, key) => (
+            renderItem={({ mainTitle, mainBg, main320Bg, id, region }, key) => (
               <TouchableOpacity
                 key={key}
                 onPress={() => navigate("article", { id })}
               >
                 <View style={[styles.articleContainer]}>
                   <Foto
-                    src={mainBg}
+                    src={
+                      main320Bg
+                        ? !main320Bg.includes("http")
+                          ? `http://ukrainer.net${main320Bg}`
+                          : main320Bg
+                        : mainBg
+                    }
                     top={0}
                     left={0}
                     right={0}

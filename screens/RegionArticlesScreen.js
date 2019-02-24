@@ -54,14 +54,20 @@ export class RegionArticlesScreen extends Component {
 
         <Carousel
           data={data}
-          renderItem={({ mainTitle, mainBg, id }, key) => (
+          renderItem={({ mainTitle, mainBg, main320Bg, id }, key) => (
             <TouchableOpacity
               key={key}
               onPress={() => navigate("regionArticleId", { id })}
             >
               <View style={[styles.articleContainer]}>
                 <Foto
-                  src={mainBg}
+                  src={
+                    main320Bg
+                      ? !main320Bg.includes("http")
+                        ? `http://ukrainer.net${main320Bg}`
+                        : main320Bg
+                      : mainBg
+                  }
                   top={0}
                   left={0}
                   right={0}
