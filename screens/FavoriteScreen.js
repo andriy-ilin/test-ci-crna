@@ -75,7 +75,7 @@ export class FavoriteScreen extends Component {
                 {t("Your saved stories are available offline.")}
               </StyledText.Light>
               {favorite.listFavorites.map(
-                ({ mainTitle, mainBg, id }, index, arr) => (
+                ({ mainTitle, mainBg, main320Bg, id }, index, arr) => (
                   <View
                     key={mainTitle}
                     style={[
@@ -95,7 +95,13 @@ export class FavoriteScreen extends Component {
                         bottom={0}
                         position="absolute"
                         borderRadius={6}
-                        src={mainBg}
+                        src={
+                          main320Bg
+                            ? !main320Bg.includes("http")
+                              ? `http://ukrainer.net${main320Bg}`
+                              : main320Bg
+                            : mainBg
+                        }
                       />
                       <LinearGradient
                         colors={[
