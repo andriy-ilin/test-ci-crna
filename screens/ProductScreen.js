@@ -175,6 +175,15 @@ export class ProductScreen extends Component {
               )
             )}
           </View>
+          <View
+            style={{
+              paddingLeft: 20,
+              paddingBottom: 20,
+              paddingTop: 20
+            }}
+          >
+            <Line />
+          </View>
           <View style={[styles.chooseWrapper]}>
             <SizesBox
               tab={tab}

@@ -21,7 +21,7 @@ class ApiService {
     return this.fb
       .database()
       .ref(`${link}/${key}`)
-      .set({ ...data, id: key, dataAdd: date.toISOString() });
+      .set({ ...data, id: key, dateAdd: date.toISOString() });
   };
 
   createWithFullLink = ({ data, link, id }) => {
@@ -30,7 +30,7 @@ class ApiService {
     return this.fb
       .database()
       .ref(link)
-      .set({ ...data, id, dataAdd: date.toISOString() });
+      .set({ ...data, id, dateAdd: date.toISOString() });
   };
 }
 
