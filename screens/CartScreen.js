@@ -15,6 +15,7 @@ import {
   TextInput
 } from "react-native";
 import { LinearGradient } from "expo";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { TextInputMask } from "react-native-masked-text";
 
 import Title from "../components/Title";
@@ -143,137 +144,143 @@ export class CartScreen extends Component {
     return (
       <View style={[styles.container]}>
         <ScrollView>
-          <View style={[styles.wrapperTitle]}>
-            <Title flexWrap="wrap">{t("Cart")}</Title>
-          </View>
-          {shop.cartProduct.map(
-            (
-              {
-                id,
-                img,
-                quantity,
-                priceArr: { newPrice = "" } = {},
-                rest,
-                title
-              },
-              key
-            ) => (
-              <View key={id}>
-                <Item
-                  price={+newPrice.replace(" ₴", "").replace(",", "")}
-                  title={title}
-                  rest={rest}
-                  img={img}
-                  id={id}
-                  quantity={quantity}
-                  changeQuantity={(id, sign) => shop.changeQuantity(id, sign)}
-                  onPress={value => navigate("product", { id: value })}
-                />
-                <View style={{ paddingLeft: 20 }}>
-                  <Line />
-                </View>
-              </View>
-            )
-          )}
-          {shop.cartProduct.length > 0 ? (
-            <View>
-              <View style={[styles.totalWrapper]}>
-                <StyledText.Bold>Total</StyledText.Bold>
-                <StyledText.Bold>{shop.getTotal} ₴</StyledText.Bold>
-              </View>
-              <StyledText.Bold>Shipment details</StyledText.Bold>
-
-              <TextInput
-                style={[styles.input]}
-                onChangeText={name =>
-                  this.setState({ name }, () => this.validationForm())
-                }
-                defaultValue={name}
-                value={name}
-                underlineColorAndroid="transparent"
-                placeholder="Input your name"
-              />
-              {touched && errorStatus && !!error.name && (
-                <Text style={[styles.errorInput]}>{error.name}</Text>
-              )}
-              <TextInputMask
-                style={[styles.input]}
-                onChangeText={phone =>
-                  this.setState({ phone }, () => this.validationForm())
-                }
-                defaultValue={phone}
-                value={phone}
-                underlineColorAndroid="transparent"
-                placeholder="Input your phone"
-                ref={"refCard"}
-                type={"custom"}
-                options={{
-                  mask: "+38 (999) 999 99 99"
-                }}
-                keyboardType="phone-pad"
-              />
-              {touched && errorStatus && !!error.phone && (
-                <Text style={[styles.errorInput]}>{error.phone}</Text>
-              )}
-
-              <TextInput
-                keyboardType="email-address"
-                style={[styles.input]}
-                onChangeText={email =>
-                  this.setState({ email }, () => this.validationForm())
-                }
-                defaultValue={email}
-                value={email}
-                underlineColorAndroid="transparent"
-                placeholder="Input your email"
-              />
-              {touched && errorStatus && !!error.email && (
-                <Text style={[styles.errorInput]}>{error.email}</Text>
-              )}
-              <TextInput
-                keyboardType="email-address"
-                style={[styles.input]}
-                onChangeText={address => this.setState({ address })}
-                defaultValue={address}
-                value={address}
-                underlineColorAndroid="transparent"
-                placeholder="Input your address"
-              />
-              <TextInput
-                style={[styles.input, styles.textarea]}
-                multiline={true}
-                numberOfLines={4}
-                onChangeText={message => this.setState({ message })}
-                defaultValue={message}
-                value={message}
-                underlineColorAndroid="transparent"
-                placeholder="Write details"
-              />
-
-              <Button
-                onPress={async () => {
-                  await this.setState({ touched: true }, () =>
-                    this.validationForm()
-                  );
-                  if (!errorStatus) {
-                    await shop.sendOrder({
-                      address,
-                      phone,
-                      email,
-                      name,
-                      address,
-                      message
-                    });
-                    return this.setState({ successModal: true });
-                  }
-                }}
-              >
-                {t("Check out")}
-              </Button>
+          <KeyboardAwareScrollView
+            resetScrollToCoords={{ x: 0, y: 0 }}
+            scrollEnabled={true}
+          >
+            <View style={[styles.wrapperTitle]}>
+              <Title flexWrap="wrap">{t("Cart")}</Title>
             </View>
-          ) : (
-            <StyledText.Light>No items in cart yet</StyledText.Light>
-          )}
+            {shop.cartProduct.map(
+              (
+                {
+                  id,
+                  img,
+                  quantity,
+                  priceArr: { newPrice = "" } = {},
+                  rest,
+                  title
+                },
+                key
+              ) => (
+                <View key={id}>
+                  <Item
+                    price={+newPrice.replace(" ₴", "").replace(",", "")}
+                    title={title}
+                    rest={rest}
+                    img={img}
+                    id={id}
+                    quantity={quantity}
+                    changeQuantity={(id, sign) => shop.changeQuantity(id, sign)}
+                    onPress={value => navigate("product", { id: value })}
+                  />
+                  <View style={{ paddingLeft: 20 }}>
+                    <Line />
+                  </View>
+                </View>
+              )
+            )}
+            {shop.cartProduct.length > 0 ? (
+              <View>
+                <View style={[styles.totalWrapper]}>
+                  <StyledText.Bold>Total</StyledText.Bold>
+                  <StyledText.Bold>{shop.getTotal} ₴</StyledText.Bold>
+                </View>
+                <StyledText.Bold>Shipment details</StyledText.Bold>
+
+                <TextInput
+                  style={[styles.input]}
+                  onChangeText={name =>
+                    this.setState({ name }, () => this.validationForm())
+                  }
+                  defaultValue={name}
+                  value={name}
+                  underlineColorAndroid="transparent"
+                  placeholder="Input your name"
+                />
+                {touched && errorStatus && !!error.name && (
+                  <Text style={[styles.errorInput]}>{error.name}</Text>
+                )}
+                <TextInputMask
+                  style={[styles.input]}
+                  onChangeText={phone =>
+                    this.setState({ phone }, () => this.validationForm())
+                  }
+                  defaultValue={phone}
+                  value={phone}
+                  underlineColorAndroid="transparent"
+                  placeholder="Input your phone"
+                  ref={"refCard"}
+                  type={"custom"}
+                  options={{
+                    mask: "+38 (999) 999 99 99"
+                  }}
+                  keyboardType="phone-pad"
+                />
+                {touched && errorStatus && !!error.phone && (
+                  <Text style={[styles.errorInput]}>{error.phone}</Text>
+                )}
+
+                <TextInput
+                  keyboardType="email-address"
+                  style={[styles.input]}
+                  onChangeText={email =>
+                    this.setState({ email }, () => this.validationForm())
+                  }
+                  defaultValue={email}
+                  value={email}
+                  underlineColorAndroid="transparent"
+                  placeholder="Input your email"
+                />
+                {touched && errorStatus && !!error.email && (
+                  <Text style={[styles.errorInput]}>{error.email}</Text>
+                )}
+                <TextInput
+                  keyboardType="email-address"
+                  style={[styles.input]}
+                  onChangeText={address => this.setState({ address })}
+                  defaultValue={address}
+                  value={address}
+                  underlineColorAndroid="transparent"
+                  placeholder="Input your address"
+                />
+
+                <TextInput
+                  style={[styles.input, styles.textarea]}
+                  multiline={true}
+                  numberOfLines={4}
+                  onChangeText={message => this.setState({ message })}
+                  defaultValue={message}
+                  value={message}
+                  underlineColorAndroid="transparent"
+                  placeholder="Write details"
+                />
+
+                <Button
+                  onPress={async () => {
+                    await this.setState({ touched: true }, () =>
+                      this.validationForm()
+                    );
+                    if (!errorStatus) {
+                      await shop.sendOrder({
+                        address,
+                        phone,
+                        email,
+                        name,
+                        address,
+                        message
+                      });
+                      return this.setState({ successModal: true });
+                    }
+                  }}
+                >
+                  {t("Check out")}
+                </Button>
+              </View>
+            ) : (
+              <StyledText.Light>No items in cart yet</StyledText.Light>
+            )}
+          </KeyboardAwareScrollView>
         </ScrollView>
       </View>
     );
