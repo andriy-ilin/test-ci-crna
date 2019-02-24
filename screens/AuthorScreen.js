@@ -127,6 +127,7 @@ const ArticleList = ({ list = [], navigate }) => (
                 paddingBottom: 5,
                 alignSelf: "flex-start"
               }}
+              numberOfLines={2}
             >
               {mainTitle}
             </StyledText.Medium>

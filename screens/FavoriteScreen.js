@@ -117,6 +117,7 @@ export class FavoriteScreen extends Component {
                         color="#fff"
                         fontSize={20}
                         textTransform="capitalize"
+                        numberOfLines={2}
                       >
                         {mainTitle}
                       </StyledText.Bold>
