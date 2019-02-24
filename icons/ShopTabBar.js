@@ -6,13 +6,13 @@ const ShopTabBar = ({ imageStyle, active = false, ...props }) => (
     {active ? (
       <Image
         source={require("../assets/images/tabBar/shopActive.png")}
-        style={{ width: 24, height: 30, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     ) : (
       <Image
         source={require("../assets/images/tabBar/shopInactive.png")}
-        style={{ width: 24, height: 30, ...imageStyle }}
+        style={{ width: 24, height: 24, ...imageStyle }}
         resizeMode="cover"
       />
     )}
