@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.18.0"></a>
+# [0.18.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.17.0...v0.18.0) (2019-02-25)
+
+
+### Bug Fixes
+
+* add numberOfLines for titles on author and favorite screens ([1314865](https://github.com/andriy-ilin/test-ci-crna/commit/1314865))
+* change background foto on square cards ([2f009f5](https://github.com/andriy-ilin/test-ci-crna/commit/2f009f5))
+* form field scroll with open keyboard ([d8045c3](https://github.com/andriy-ilin/test-ci-crna/commit/d8045c3))
+* mapScreen according to design ([19e9d8b](https://github.com/andriy-ilin/test-ci-crna/commit/19e9d8b))
+
+
+### Features
+
+* navigate animation to menuScreen from left-to-right ([17e3035](https://github.com/andriy-ilin/test-ci-crna/commit/17e3035))
+* update icons on tabBar ([53661af](https://github.com/andriy-ilin/test-ci-crna/commit/53661af))
+
+
+
 <a name="0.17.0"></a>
 # [0.17.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.16.0...v0.17.0) (2019-02-24)
 
