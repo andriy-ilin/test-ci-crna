@@ -1,8 +1,12 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
 
 class ApiService {
   fb = firebase;
+
+  signIn = (email, pass) =>
+    this.fb.auth().signInWithEmailAndPassword(email, pass);
 
   fetchAllByEntityName = ref =>
     this.fb
