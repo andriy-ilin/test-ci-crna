@@ -1,8 +1,7 @@
-import "../../helpers/firebaseConfig";
 import { slugify } from "transliteration";
+import "../../helpers/firebaseConfig";
 import api from "../api";
-
-const tableName = {};
+import env from "../../env";
 
 describe("Firebase test", () => {
   let aticleId, langKey, authorsId, articleAuthors, articleHref;
@@ -10,6 +9,14 @@ describe("Firebase test", () => {
     const rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
   };
+
+  it("Test auth", async () => {
+    const lang = await api.signIn(
+      env.FIREBASE_AUTH_MAIL,
+      env.FIREBASE_AUTH_PASS
+    );
+    expect(lang).toBeDefined();
+  });
 
   it("GET lang", async () => {
     const lang = await api.fetchAllByEntityName("/lang");
