@@ -147,7 +147,8 @@ class ShopStore extends BasicStore {
         email,
         phone,
         name,
-        message
+        message,
+        status: "new"
       }
     });
   }
