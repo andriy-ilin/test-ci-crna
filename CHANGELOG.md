@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.20.0"></a>
+# [0.20.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.19.0...v0.20.0) (2019-05-07)
+
+
+### Bug Fixes
+
+* create order with status - "new" ([2246725](https://github.com/andriy-ilin/test-ci-crna/commit/2246725))
+
+
+### Features
+
+* update expo version to 32.0.0 ([aeafc44](https://github.com/andriy-ilin/test-ci-crna/commit/aeafc44))
+
+
+
 <a name="0.19.0"></a>
 # [0.19.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.18.0...v0.19.0) (2019-02-26)
 
