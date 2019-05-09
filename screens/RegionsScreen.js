@@ -124,7 +124,7 @@ export class RegionsScreen extends Component {
                     lineHeight={12}
                     containerProps={{ paddingBottom: 0, paddingLeft: 5 }}
                   >
-                    clear filter
+                    {t("common:clear filters")}
                   </StyledText.Medium>
                 </View>
               </TouchableOpacity>
@@ -157,6 +157,7 @@ export class RegionsScreen extends Component {
               onFilter={() =>
                 this.setState({ filterTab: null, openTab: "all" })
               }
+              t={t}
             />
           )}
           {filterTab === "find" && (
@@ -166,6 +167,7 @@ export class RegionsScreen extends Component {
                 regions.addFindArticles(value);
                 return this.setState({ filterTab: null, openTab: "all" });
               }}
+              t={t}
             />
           )}
         </ScrollView>
@@ -187,7 +189,8 @@ const FilterView = ({
   lang,
   onPress = () => {},
   selectedRegions = [],
-  onFilter = () => {}
+  onFilter = () => {},
+  t = () => {}
 }) => (
   <View style={[stylesFilterView.wrapper]}>
     <View style={{ paddingLeft: 20, paddingBottom: 20 }}>
@@ -199,7 +202,7 @@ const FilterView = ({
         paddingLeft: 25
       }}
     >
-      Regions
+      {t("common:Regions")}
     </StyledText.Bold>
     {regions.map(({ name }) => (
       <TouchableOpacity key={name} onPress={() => onPress(name)}>
@@ -224,7 +227,7 @@ const FilterView = ({
       </TouchableOpacity>
     ))}
     <View style={{ paddingTop: 20, paddingBottom: 20 }}>
-      <Button onPress={() => onFilter()}>Apply filter</Button>
+      <Button onPress={() => onFilter()}>{t("common:Apply filter")}</Button>
     </View>
   </View>
 );
@@ -244,7 +247,7 @@ class FindView extends Component {
   state = {};
 
   render() {
-    const { value, onFind } = this.props;
+    const { value, onFind, t } = this.props;
     return (
       <View style={[stylesFilterView.wrapper]}>
         <View style={{ paddingLeft: 20, paddingBottom: 20 }}>
@@ -256,7 +259,7 @@ class FindView extends Component {
             paddingLeft: 25
           }}
         >
-          Search
+          {t("common:Search")}
         </StyledText.Bold>
         <View>
           <View
@@ -274,11 +277,13 @@ class FindView extends Component {
             defaultValue={value}
             value={this.state.find}
             underlineColorAndroid="transparent"
-            placeholder={"Start typing ..."}
+            placeholder={`${t("common:Start typing")} ...`}
           />
         </View>
         <View style={{ paddingTop: 20, paddingBottom: 20 }}>
-          <Button onPress={() => onFind(this.state.find)}>Find articles</Button>
+          <Button onPress={() => onFind(this.state.find)}>
+            {t("common:Find articles")}
+          </Button>
         </View>
       </View>
     );

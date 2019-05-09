@@ -23,6 +23,8 @@ import FormPicker from "../components/FormPicker";
 import Line from "../components/Line";
 import Cart from "../icons/Cart";
 
+import WHITE_LIST_ADDITIONAL_INFO from "../constants/AdditionalInfoShop";
+
 const { width } = Dimensions.get("window");
 
 @withNamespaces(["shop"], { wait: true })
@@ -189,6 +191,7 @@ export class ProductScreen extends Component {
               tab={tab}
               // chooseData = {this.state.sizesBox}
               onPress={data => this.setState({ sizesBox: data })}
+              t={t}
             />
             <ProductQuantity />
           </View>
@@ -286,7 +289,7 @@ class SizesBox extends Component {
   }
 
   render() {
-    const { tab = [], onPress } = this.props;
+    const { tab = [], onPress, t } = this.props;
     const sizesTable = tab.find(({ title }) =>
       WHITE_ADDITIONAL_INFO.includes(title)
     );
@@ -310,17 +313,20 @@ class SizesBox extends Component {
                 paddingTop: 15
               }}
             >
-              {item[0]}
+              {t(WHITE_LIST_ADDITIONAL_INFO[item[0]] || item[0])}
             </StyledText.Bold>
             <View style={[styles.sizesBoxWrapper]}>
               <FormPicker
                 items={options}
                 value={this.state[item[0]]}
-                placeholder={`Обрати ${item[0]}`}
+                placeholder={`${t("Choose")} ${t(
+                  WHITE_LIST_ADDITIONAL_INFO[item[0]] || item[0]
+                )}`}
                 onValueChange={async text => {
                   await this.setState({ [item[0]]: text });
                   onPress(this.state);
                 }}
+                buttonText={t("Choose")}
               />
             </View>
           </View>

@@ -87,7 +87,7 @@ const DefaultLeftBlock = ({ navigation, mainRoute }) => (
   </TouchableOpacity>
 );
 
-@withNamespaces(["home", "common"], { wait: true })
+@withNamespaces(["common"], { wait: true })
 @inject("lang")
 @observer
 class DefaultRightBlock extends React.Component {
@@ -111,7 +111,8 @@ class DefaultRightBlock extends React.Component {
       navigation,
       routeName,
       lang: { list = [], articlesTranslateList = [] } = {},
-      lang
+      lang,
+      t
     } = this.props;
     const { fromTop, openModal } = this.state;
     return !WHITE_LIST_SHOP_ROUTE.includes(routeName) ? (
@@ -136,7 +137,7 @@ class DefaultRightBlock extends React.Component {
             />
 
             <View style={[stylesLng.container]}>
-              <Title>Languages</Title>
+              <Title>{t("Languages")}</Title>
               <View style={{ paddingLeft: 20 }}>
                 <Line />
               </View>
@@ -187,7 +188,7 @@ class DefaultRightBlock extends React.Component {
                               paddingLeft: 10
                             }}
                           >
-                            {!link && "translation is not available"}
+                            {!link && t("translation is not available")}
                           </StyledText.Light>
                         </View>
                       </View>
