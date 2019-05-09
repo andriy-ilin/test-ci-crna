@@ -21,31 +21,36 @@ export default class FormPicker extends Component {
   }
 
   render() {
+    const {
+      buttonText = "Choose",
+      value,
+      placeholder,
+      onValueChange,
+      mode,
+      colorText,
+      items = []
+    } = this.props;
+    const { modalVisible } = this.state;
     if (Platform.OS === "android") {
-      const selectedLabel =
-        this.props.value !== "" ? this.props.value : this.props.placeholder;
+      const selectedLabel = value || placeholder;
       return (
         <View>
           <Picker
             style={[styles.picker]}
-            selectedValue={this.props.value}
-            onValueChange={this.props.onValueChange}
-            mode={this.props.mode ? this.props.mode : "dropdown"}
+            selectedValue={value}
+            onValueChange={onValueChange}
+            mode={mode || "dropdown"}
           >
-            {this.props.items.map((i, index) => (
-              <Picker.Item key={index} label={i.label} value={i.value} />
+            {items.map(({ value, label }, index) => (
+              <Picker.Item key={index} label={label} value={value} />
             ))}
           </Picker>
         </View>
       );
     } else {
-      const selectedItem = this.props.items.find(
-        i => i.value === this.props.value
-      );
+      const selectedItem = items.find(i => i.value === value);
 
-      const selectedLabel = selectedItem
-        ? selectedItem.label
-        : this.props.placeholder;
+      const selectedLabel = selectedItem ? selectedItem.label : placeholder;
 
       return (
         <View style={styles.inputContainer}>
@@ -59,9 +64,7 @@ export default class FormPicker extends Component {
             <Text
               style={[
                 styles.font,
-                this.props.colorText && styles.colorText,
-                // styles.placeholder
-                // selectedLabel === "Оберіть інтервал" && styles.placeholder,
+                colorText && styles.colorText,
                 !selectedItem && styles.placeholder
               ]}
             >
@@ -71,7 +74,7 @@ export default class FormPicker extends Component {
           <Modal
             // animationType="slide"
             transparent={true}
-            visible={this.state.modalVisible}
+            visible={modalVisible}
           >
             <TouchableWithoutFeedback
               onPress={() => this.setState({ modalVisible: false })}
@@ -79,20 +82,16 @@ export default class FormPicker extends Component {
               <View style={styles.modalContainer}>
                 <View style={styles.buttonContainer}>
                   <Text style={styles.buttonText} onPress={this.choose}>
-                    Обрати
+                    {buttonText}
                   </Text>
                 </View>
                 <View style={styles.modalContainerColor}>
                   <Picker
-                    selectedValue={this.props.value}
+                    selectedValue={value}
                     onValueChange={this.choosePicker}
                   >
-                    {this.props.items.map((i, index) => (
-                      <Picker.Item
-                        key={index}
-                        label={i.label}
-                        value={i.value}
-                      />
+                    {items.map(({ label, value }, index) => (
+                      <Picker.Item key={index} label={label} value={value} />
                     ))}
                   </Picker>
                 </View>
@@ -138,7 +137,6 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     padding: 0,
     margin: 0
-    // backgroundColor:'#eee'
   },
   pickerItem: {
     color: "green",
@@ -157,8 +155,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "bold",
     color: "#77d9a0"
-    // fontFamily: regular,
-    // fontSize: defaultSize
   },
   colorText: {
     color: "red"

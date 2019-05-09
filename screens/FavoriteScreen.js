@@ -72,7 +72,7 @@ export class FavoriteScreen extends Component {
                   marginBottom: 20
                 }}
               >
-                {t("Your saved stories are available offline.")}
+                {t("Your saved stories are available offline")}
               </StyledText.Light>
               {favorite.listFavorites.map(
                 ({ mainTitle, mainBg, main320Bg, id }, index, arr) => (
@@ -155,7 +155,7 @@ export class FavoriteScreen extends Component {
                             paddingRight: 0
                           }}
                         >
-                          Delete from favorites?
+                          {t("Delete from favorites?")}
                         </StyledText.Bold>
                         <View style={[styles.answearWrapper]}>
                           <TouchableOpacity
@@ -170,7 +170,7 @@ export class FavoriteScreen extends Component {
                                 paddingBottom: 0
                               }}
                             >
-                              Yes
+                              {t("Yes")}
                             </StyledText.Medium>
                           </TouchableOpacity>
                           <StyledText.Medium
@@ -195,7 +195,7 @@ export class FavoriteScreen extends Component {
                                 paddingBottom: 0
                               }}
                             >
-                              No
+                              {t("No")}
                             </StyledText.Medium>
                           </TouchableOpacity>
                         </View>

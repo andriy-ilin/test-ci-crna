@@ -24,9 +24,10 @@ import Foto from "../components/Foto";
 import Carousel from "../components/Carousel";
 import Loading from "../components/Loading";
 import StyledText from "../components/StyledText";
-import FormPicker from "../components/FormPicker";
 import Line from "../components/Line";
 import Cart from "../icons/Cart";
+
+import WHITE_LIST_ADDITIONAL_INFO from "../constants/AdditionalInfoShop";
 
 const { width } = Dimensions.get("window");
 
@@ -48,9 +49,10 @@ export class CartScreen extends Component {
 
   validationForm = async () => {
     const { phone, email, name, error, touched, errorStatus } = this.state;
+    const { t } = this.props;
     if (this.state.phone === "") {
       await this.setState({
-        error: { ...this.state.error, phone: "This is required field" }
+        error: { ...this.state.error, phone: t("This is required field") }
       });
     } else {
       await this.setState({ error: { ...this.state.error, phone: undefined } });
@@ -58,7 +60,7 @@ export class CartScreen extends Component {
 
     if (this.state.email === "") {
       await this.setState({
-        error: { ...this.state.error, email: "This is required field" }
+        error: { ...this.state.error, email: t("This is required field") }
       });
     } else {
       await this.setState({ error: { ...this.state.error, email: undefined } });
@@ -66,7 +68,7 @@ export class CartScreen extends Component {
 
     if (this.state.name === "") {
       await this.setState({
-        error: { ...this.state.error, name: "This is required field" }
+        error: { ...this.state.error, name: t("This is required field") }
       });
     } else {
       {
@@ -81,7 +83,7 @@ export class CartScreen extends Component {
     );
     if (!regExpEmail)
       await this.setState({
-        error: { ...this.state.error, email: "Email is not valid" }
+        error: { ...this.state.error, email: t("Email is not valid") }
       });
 
     const regExpPhone = /\+38 \(\d\d\d\) \d\d\d \d\d \d\d/.test(
@@ -89,7 +91,7 @@ export class CartScreen extends Component {
     );
     if (!regExpPhone)
       await this.setState({
-        error: { ...this.state.error, phone: "Phone is not valid" }
+        error: { ...this.state.error, phone: t("Phone is not valid") }
       });
 
     if (
@@ -126,7 +128,7 @@ export class CartScreen extends Component {
           <View style={[styles.modalSuccess]}>
             <View style={[styles.modalSuccessWrapper]}>
               <Title textAlign="center" paddingBottom={40} paddingRight={20}>
-                Success
+                {t("Success")}
               </Title>
               <Button
                 onPress={() => {
@@ -173,6 +175,7 @@ export class CartScreen extends Component {
                     quantity={quantity}
                     changeQuantity={(id, sign) => shop.changeQuantity(id, sign)}
                     onPress={value => navigate("product", { id: value })}
+                    t={t}
                   />
                   <View style={{ paddingLeft: 20 }}>
                     <Line />
@@ -183,11 +186,10 @@ export class CartScreen extends Component {
             {shop.cartProduct.length > 0 ? (
               <View>
                 <View style={[styles.totalWrapper]}>
-                  <StyledText.Bold>Total</StyledText.Bold>
+                  <StyledText.Bold>{t("Total")}</StyledText.Bold>
                   <StyledText.Bold>{shop.getTotal} ₴</StyledText.Bold>
                 </View>
-                <StyledText.Bold>Shipment details</StyledText.Bold>
-
+                <StyledText.Bold>{t("Shipment details")}</StyledText.Bold>
                 <TextInput
                   style={[styles.input]}
                   onChangeText={name =>
@@ -196,7 +198,7 @@ export class CartScreen extends Component {
                   defaultValue={name}
                   value={name}
                   underlineColorAndroid="transparent"
-                  placeholder="Input your name"
+                  placeholder={t("Input your name")}
                 />
                 {touched && errorStatus && !!error.name && (
                   <Text style={[styles.errorInput]}>{error.name}</Text>
@@ -209,7 +211,7 @@ export class CartScreen extends Component {
                   defaultValue={phone}
                   value={phone}
                   underlineColorAndroid="transparent"
-                  placeholder="Input your phone"
+                  placeholder={t("Input your phone")}
                   ref={"refCard"}
                   type={"custom"}
                   options={{
@@ -230,7 +232,7 @@ export class CartScreen extends Component {
                   defaultValue={email}
                   value={email}
                   underlineColorAndroid="transparent"
-                  placeholder="Input your email"
+                  placeholder={t("Input your email")}
                 />
                 {touched && errorStatus && !!error.email && (
                   <Text style={[styles.errorInput]}>{error.email}</Text>
@@ -242,7 +244,7 @@ export class CartScreen extends Component {
                   defaultValue={address}
                   value={address}
                   underlineColorAndroid="transparent"
-                  placeholder="Input your address"
+                  placeholder={t("Input your address")}
                 />
 
                 <TextInput
@@ -253,7 +255,7 @@ export class CartScreen extends Component {
                   defaultValue={message}
                   value={message}
                   underlineColorAndroid="transparent"
-                  placeholder="Write details"
+                  placeholder={t("Write details")}
                 />
 
                 <Button
@@ -278,7 +280,7 @@ export class CartScreen extends Component {
                 </Button>
               </View>
             ) : (
-              <StyledText.Light>No items in cart yet</StyledText.Light>
+              <StyledText.Light>{t("No items in cart yet")}</StyledText.Light>
             )}
           </KeyboardAwareScrollView>
         </ScrollView>
@@ -295,7 +297,8 @@ const Item = ({
   rest,
   title,
   onPress,
-  changeQuantity
+  changeQuantity,
+  t = () => {}
 }) => (
   <View style={[styles.wrapperItem]}>
     <TouchableOpacity onPress={() => onPress(id)} style={{ paddingLeft: 20 }}>
@@ -341,7 +344,8 @@ const Item = ({
                 paddingTop: 0
               }}
             >
-              {key} : {value || "необрано"}
+              {`${t(WHITE_LIST_ADDITIONAL_INFO[key] || key)} : ${value ||
+                t("not selected")}`}
             </StyledText.Light>
           ))}
       </View>
