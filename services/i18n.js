@@ -3,6 +3,7 @@ import { reactI18nextModule } from "react-i18next";
 import { Localization } from "expo-localization";
 import en from "../locale/en.json";
 import de from "../locale/de.json";
+import uk from "../locale/uk.json";
 // creating a language detection plugin using expo
 // http://i18next.com/docs/ownplugin/#languagedetector
 const languageDetector = {
@@ -26,7 +27,8 @@ i18n
 
     resources: {
       en,
-      de
+      de,
+      uk
     },
 
     // have a common namespace used around the full app
