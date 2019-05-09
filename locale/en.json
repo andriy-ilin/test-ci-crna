@@ -3,20 +3,30 @@
     "Top stories": "Top stories",
     "Discover more than 200 breathtaking articles about Ukraine": "Discover more than 200 breathtaking articles about Ukraine",
     "More stories": "More stories",
-    "view all": "view all"
+    "view all": "view all",
+    "Authors": "Authors"
   },
   "common": {
-    "Clear filters": "Clear filters",
-    "Start typing...": "Start typing...",
-    "Search": "Search"
+    "clear filters": "clear filters",
+    "Start typing": "Start typing",
+    "Search": "Search",
+    "Find articles": "Find articles",
+    "Apply filter": "Apply filter",
+    "Regions": "Regions",
+    "Articles": "Articles",
+    "Languages": "Languages",
+    "translation is not available": "translation is not available"
   },
   "regions": {
     "Regions": "Regions",
     "All stories": "All stories"
   },
-  "favorites": {
-    "Favorites": "Favorites",
-    "Your saved stories are available offline.": "Your saved stories are available offline."
+  "favorite": {
+    "Favorite": "Favorite",
+    "Your saved stories are available offline": "Your saved stories are available offline",
+    "Delete from favorites?": "Delete from favorites?",
+    "Yes": "Yes",
+    "No": "No"
   },
   "partners": {
     "Partners": "Partners",
@@ -26,7 +36,9 @@
     "Contacts": "Contacts"
   },
   "video": {
-    "Video": "Video"
+    "Video": "Video",
+    "Vlog": "Vlog",
+    "Load more": "Load more"
   },
   "team": {
     "Team": "Team",
@@ -59,7 +71,34 @@
     "Amount": "Amount",
     "Add to cart": "Add to cart",
     "Total": "Total",
-    "Check out": "Check out"
+    "Check out": "Check out",
+    "Cart": "Cart",
+    "This is required field": "This is required field",
+    "Email is not valid": "Email is not valid",
+    "Phone is not valid": "Phone is not valid",
+    "Success": "Success",
+    "Shipment details": "Shipment details",
+    "Input your name": "Input your name",
+    "Input your phone": "Input your phone",
+    "Input your email": "Input your email",
+    "Input your address": "Input your address",
+    "Write details": "Write details",
+    "No items in cart yet": "No items in cart yet",
+    "not selected": "not selected",
+    "Quantity": "Quantity",
+    "Choose": "Choose",
+    "Size": "Size",
+    "Dimensions": "Dimensions",
+    "Purpose": "Purpose",
+    "Color": "Color",
+    "Weight": "Weight",
+    "Width": "Width",
+    "Length": "Length",
+    "Name": "Name",
+    "Email": "Email",
+    "Phone": "Phone",
+    "Address": "Address",
+    "Details": "Details"
   },
   "about": {
     "Expedition": "Expedition",

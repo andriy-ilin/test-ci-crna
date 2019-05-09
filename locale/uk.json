@@ -1,0 +1,114 @@
+{
+  "home": {
+    "Top stories": "Топ історії",
+    "Discover more than 200 breathtaking articles about Ukraine": "Відкрийте більше 200 захоплюючих статей про Україну",
+    "More stories": "Більше історій",
+    "view all": "переглянути всі",
+    "Authors": "Автори"
+  },
+  "common": {
+    "clear filters": "очистити фільтри",
+    "Start typing": "Введіть",
+    "Search": "Пошук",
+    "Find articles": "Шукати",
+    "Apply filter": "Застосувати фільтр",
+    "Regions": "Регіони",
+    "Articles": "Історії",
+    "Languages": "Мови",
+    "translation is not available": "переклад не доступний"
+  },
+  "regions": {
+    "Regions": "Регіони",
+    "All stories": "Всі історії"
+  },
+  "favorite": {
+    "Favorite": "Вибране",
+    "Your saved stories are available offline": "Ваші збережені історії доступні в автономному режимі",
+    "Delete from favorites?": "Видалити з вибраного?",
+    "Yes": "Так",
+    "No": "Ні"
+  },
+  "partners": {
+    "Partners": "Партнери",
+    "Become a partner": "Стати партнером"
+  },
+  "contacts": {
+    "Contacts": "Контакти"
+  },
+  "video": {
+    "Video": "Відео",
+    "Vlog": "Влог",
+    "Load more": "Завантажити ще"
+  },
+  "team": {
+    "Team": "Команда",
+    "Join the team": "Приєднатися до команди",
+    "Share music": "Надати музику",
+    "Recommend location": "Рекомендувати розташування"
+  },
+  "menu": {
+    "About": "Про нас",
+    "Team": "Команда",
+    "Video": "Відео",
+    "Partners": "Партнери",
+    "Contacts": "Контакти"
+  },
+  "donate": {
+    "We are raising": "Ми залучаємо",
+    "1 million UAH": "1 млн грн",
+    "357 000 UAH": "357 000 грн",
+    "35%": "35%",
+    "We discover Ukraine and turn these discoveries into useful visual content which is already being used in education,": "Ми відкриваємо Україну і перетворюємо ці відкриття в корисний візуальний контент, який вже використовується в освіті,",
+    "as a presentation of regions inside the country as well as to display the touristic potential of Ukraine in the world.": " як презентація регіонів усередині країни, а також для відображення туристичного потенціалу України у світі.",
+    "Therefore, any contribution to Ukraїner is your contribution to Ukraine!": "Тому будь-який внесок в Ukraїner - це ваш внесок в Україну!",
+    "Support the project": "Підтримати проект"
+  },
+  "shop": {
+    "Shop": "Магазин",
+    "Long Description": "Всі кошти, вилучені з продажу товарів, будуть спрямовані на розвиток експедицій.",
+    "Description": "Опис",
+    "Size": "Розмір",
+    "Amount": "Сума",
+    "Add to cart": "Додати в кошик",
+    "Total": "Всього",
+    "Check out": "Замовити",
+    "Cart": "Кошик",
+    "This is required field": "Це обов'язкове поле",
+    "Email is not valid": "Електронна пошта недійсна",
+    "Phone is not valid": "Телефон недійсний",
+    "Success": "Успіх",
+    "Shipment details": "Деталі доставки",
+    "Input your name": "Введіть своє ім'я",
+    "Input your phone": "Введіть телефон",
+    "Input your email": "Введіть електронну пошту",
+    "Input your address": "Введіть адресу",
+    "Write details": "Напишіть деталі",
+    "No items in cart yet": "Немає продукції у кошику",
+    "not selected": "не вибрано",
+    "Quantity": "Кількість",
+    "Choose": "Обрати",
+    "Size": "Розмір",
+    "Dimensions": "Розміри",
+    "Purpose": "Призначення",
+    "Color": "Колір",
+    "Weight": "Вага",
+    "Width": "Ширина",
+    "Length": "Довжина",
+    "Name": "Ім'я",
+    "Email": "Електронна пошта",
+    "Phone": "Телефон",
+    "Address": "Адреса",
+    "Details": "Деталі"
+  },
+  "about": {
+    "Expedition": "Експедиція",
+    "After National Geographic disappeared from the Ukrainian media space, there were no projects for the aficionados of intellectual media and unexpected geographical discoveries left to replace it.": "Після того, як National Geographic зник з українського медіа-простору, не залишилося жодних проектів для шанувальників інтелектуальних медіа і несподіваних географічних відкриттів, які б замінили його."
+  },
+  "tabBar": {
+    "home": "головна",
+    "favorite": "збережені",
+    "donate": "фінансувати",
+    "shop": "магазин",
+    "regions": "регіони"
+  }
+}

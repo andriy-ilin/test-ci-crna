@@ -3,20 +3,30 @@
     "Top stories": "Top Stories",
     "Discover more than 200 breathtaking articles about Ukraine": "Entdecken Sie mehr als 200 atemberaubende Artikel über die Ukraine",
     "More stories": "Weitere Geschichten",
-    "view all": "Alle anzeigen"
+    "view all": "Alle anzeigen",
+    "Authors": "Autoren"
   },
   "common": {
-    "Clear filters": "Filter löschen",
-    "Start typing...": "Beginnen Sie mit der Eingabe ...",
-    "Search": "Suche"
+    "clear filters": "filter löschen",
+    "Start typing": "Beginnen Sie mit der Eingabe",
+    "Search": "Suche",
+    "Find articles": "Artikel suchen",
+    "Apply filter": "Filter anwenden",
+    "Regions": "Regionen",
+    "Articles": "Geschichten",
+    "Languages": "Sprachen",
+    "translation is not available": "Übersetzung nicht verfügbar"
   },
   "regions": {
     "Regions": "Regionen",
     "All stories": "Alle Geschichten"
   },
-  "favorites": {
-    "Favorites": "Favoriten",
-    "Your saved stories are available offline.": "Ihre gespeicherten Storys sind offline verfügbar."
+  "favorite": {
+    "Favorite": "Favoriten",
+    "Your saved stories are available offline": "Ihre gespeicherten Storys sind offline verfügbar",
+    "Delete from favorites?": "Aus Favoriten löschen?",
+    "Yes": "Ja",
+    "No": "Nein"
   },
   "partners": {
     "Partners": "Partner",
@@ -26,7 +36,9 @@
     "Contacts": "Kontakte"
   },
   "video": {
-    "Video": "Video"
+    "Video": "Video",
+    "Vlog": "Vlog",
+    "Load more": "Mehr laden"
   },
   "team": {
     "Team": "Team",
@@ -59,7 +71,34 @@
     "Amount": "Betrag",
     "Add to cart": "In den Warenkorb legen",
     "Total": "Gesamt",
-    "Check out": "Auschecken"
+    "Check out": "Auschecken",
+    "Cart": "Wagen",
+    "This is required field": "Dies ist ein Pflichtfeld",
+    "Email is not valid": "Email ist nicht gültig",
+    "Phone is not valid": "Telefon ist nicht gültig",
+    "Success": "Erfolg",
+    "Shipment details": "Sendungsdetails",
+    "Input your name": "Geben Sie Ihren Namen ein",
+    "Input your phone": "Geben Sie Ihr Telefon ein",
+    "Input your email": "Geben Sie Ihre E-Mail-Adresse ein",
+    "Input your address": "Geben Sie Ihre Adresse ein",
+    "Write details": "Details schreiben",
+    "No items in cart yet": "Noch keine Artikel im Warenkorb",
+    "not selected": "nicht ausgewählt",
+    "Quantity": "Menge",
+    "Choose": "Auswählen",
+    "Size": "Größe",
+    "Dimensions": "Abmessungen",
+    "Purpose": "Zweck",
+    "Color": "Farbe",
+    "Weight": "Gewicht",
+    "Width": "Breite",
+    "Length": "Länge",
+    "Name": "Name",
+    "Email": "Email",
+    "Phone": "Telefon",
+    "Address": "Adresse",
+    "Details": "Details"
   },
   "tabBar": {
     "home": "hause",
