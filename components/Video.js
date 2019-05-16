@@ -4,6 +4,18 @@ import { Constants } from "expo";
 import Loading from "./Loading";
 const { width } = Dimensions.get("window");
 
+// ISO 639-1 Code
+const langYoutubeICO = {
+  uk: "uk",
+  ru: "ru",
+  cz: "cs",
+  el: "el",
+  de: "de",
+  fr: "fr",
+  ka: "ka",
+  pl: "pl"
+};
+
 export default class Video extends Component {
   state = { loading: false };
   onNavigationStateChange = navState => {
@@ -15,7 +27,7 @@ export default class Video extends Component {
   };
 
   render() {
-    const { src, ...props } = this.props;
+    const { src, lng = "en", ...props } = this.props;
     const { loading } = this.state;
     return (
       <View style={[styles.wrapper, { ...props }]}>
@@ -34,7 +46,7 @@ export default class Video extends Component {
           style={[styles.webView]}
           javaScriptEnabled={true}
           source={{
-            uri: src
+            uri: `${src}?cc_load_policy=1&cc_lang_pref=${langYoutubeICO[lng]}`
           }}
         />
       </View>
