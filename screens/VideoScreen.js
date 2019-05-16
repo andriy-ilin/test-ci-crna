@@ -149,7 +149,7 @@ export class VideoScreen extends Component {
                   data={video.listWithFilterAndFind.slice(0, countVideo)}
                   keyExtractor={({ id }) => id}
                   renderItem={({ item: { videoSrc } }) => (
-                    <Video src={videoSrc} width={width - 40} />
+                    <Video src={videoSrc} width={width - 40} lng={lng} />
                   )}
                 />
               </View>
@@ -173,7 +173,9 @@ export class VideoScreen extends Component {
                   data={video.listWithFilterAndFind.slice(0, countVlog)}
                   keyExtractor={({ id }) => id}
                   renderItem={({ item: { vlogSrc } }) =>
-                    vlogSrc && <Video src={vlogSrc} width={width - 40} />
+                    vlogSrc && (
+                      <Video src={vlogSrc} width={width - 40} lng={lng} />
+                    )
                   }
                 />
               </View>
