@@ -16,8 +16,6 @@ const buildEnv = process.env;
 const { env: runtimeEnv } = global.process || {};
 
 export default {
-  ...buildEnv,
-  ...runtimeEnv,
   FIREBASE_API_KEY,
   FIREBASE_AUTH_DOMAIN,
   FIREBASE_DATABASE_URL,
@@ -28,5 +26,7 @@ export default {
   FIREBASE_AUTH_PASS,
   PUSH_ENDPOINT,
   PUSH_SECRET_CODE,
-  PUSH_APP_NAME
+  PUSH_APP_NAME,
+  ...buildEnv,
+  ...runtimeEnv
 };

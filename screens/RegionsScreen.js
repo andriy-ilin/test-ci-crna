@@ -35,14 +35,15 @@ export class RegionsScreen extends Component {
 
   async componentDidMount() {
     const { regions, lng } = this.props;
+    await regions.getRegionsName(lng);
     await regions.getRegions(`/catalog/${lng}`);
-    await regions.getRegionsName();
   }
 
   async componentDidUpdate({ lng }) {
     const { lng: nextLng } = this.props;
     if (lng !== nextLng) {
       const { regions } = this.props;
+      await regions.getRegionsName(nextLng);
       await regions.getRegions(`/catalog/${nextLng}`);
     }
   }
@@ -55,7 +56,7 @@ export class RegionsScreen extends Component {
       lng
     } = this.props;
     const { openTab, filterTab } = this.state;
-
+    if (regions.loading) return <Loading />;
     return (
       <View style={[styles.wrapper]}>
         <View style={[styles.tabWrapper]}>
@@ -134,7 +135,9 @@ export class RegionsScreen extends Component {
           <View style={[filterTab && { display: "none" }]}>
             <View style={[openTab !== "regions" && { display: "none" }]}>
               <RegionsContainer
-                list={regions.listRegions}
+                list={regions.regionsListName.filter(({ region }) =>
+                  regions.listRegions.includes(region)
+                )}
                 onPress={region => navigate("regionArticles", { region })}
               />
             </View>
@@ -150,7 +153,8 @@ export class RegionsScreen extends Component {
           </View>
           {filterTab === "filter" && (
             <FilterView
-              regions={regions.listRegions || regions.regionsListName}
+              regions={regions.listRegions}
+              data={regions.regionsListName}
               lang={lng}
               onPress={name => regions.addToSelectedRegions(name)}
               selectedRegions={regions.selectedRegionsList}
@@ -186,6 +190,7 @@ export class RegionsScreen extends Component {
 
 const FilterView = ({
   regions,
+  data,
   lang,
   onPress = () => {},
   selectedRegions = [],
@@ -204,28 +209,32 @@ const FilterView = ({
     >
       {t("common:Regions")}
     </StyledText.Bold>
-    {regions.map(({ name }) => (
-      <TouchableOpacity key={name} onPress={() => onPress(name)}>
-        <View key={name} style={[stylesFilterView.regionsFilterItem]}>
-          <View style={[stylesFilterView.selectRow]}>
-            <StyledText.Medium
-              fontSize={14}
-              textTransform="capitalize"
-              containerProps={{
-                paddingBottom: 10,
-                paddingTop: 10,
-                paddingLeft: 25
-              }}
-            >
-              {name}
-            </StyledText.Medium>
+    {regions.map(translateName => {
+      const { name } =
+        data.find(({ region }) => region === translateName) || {};
+      return (
+        <TouchableOpacity key={name} onPress={() => onPress(name)}>
+          <View key={name} style={[stylesFilterView.regionsFilterItem]}>
+            <View style={[stylesFilterView.selectRow]}>
+              <StyledText.Medium
+                fontSize={14}
+                textTransform="capitalize"
+                containerProps={{
+                  paddingBottom: 10,
+                  paddingTop: 10,
+                  paddingLeft: 25
+                }}
+              >
+                {name}
+              </StyledText.Medium>
 
-            {selectedRegions.includes(name) && <SelectedIcon />}
+              {selectedRegions.includes(name) && <SelectedIcon />}
+            </View>
+            <Line backgroundColor="#eee" />
           </View>
-          <Line backgroundColor="#eee" />
-        </View>
-      </TouchableOpacity>
-    ))}
+        </TouchableOpacity>
+      );
+    })}
     <View style={{ paddingTop: 20, paddingBottom: 20 }}>
       <Button onPress={() => onFilter()}>{t("common:Apply filter")}</Button>
     </View>
@@ -306,10 +315,10 @@ const stylesFindView = StyleSheet.create({
 const RegionsContainer = ({ list = [], onPress = () => {} }) => (
   <FlatList
     data={list}
-    keyExtractor={({ name }) => name}
-    renderItem={({ item: { name, mainBg } }) => (
-      <TouchableOpacity key={name} onPress={() => onPress(name)}>
-        <View key={name} style={[styles.cardRegions]}>
+    keyExtractor={({ region }) => region}
+    renderItem={({ item: { name, region, img } }) => (
+      <TouchableOpacity key={region} onPress={() => onPress(region)}>
+        <View key={region} style={[styles.cardRegions]}>
           <Foto
             top={0}
             left={0}
@@ -317,7 +326,7 @@ const RegionsContainer = ({ list = [], onPress = () => {} }) => (
             bottom={0}
             position="absolute"
             borderRadius={6}
-            src={mainBg}
+            src={img}
           />
           <StyledText.Bold
             color="#fff"
