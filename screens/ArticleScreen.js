@@ -93,6 +93,7 @@ export class ArticleScreen extends Component {
       team,
       article,
       favorite,
+      lng,
       article: {
         [routeName]: { id, mainTitle, mainBg, content = [], region },
         [routeName]: route
@@ -244,7 +245,7 @@ export class ArticleScreen extends Component {
                     </View>
                   )
                 }
-                Video={<Video src={value} />}
+                Video={<Video src={value} lng={lng} />}
                 default={<View />}
               />
             </View>
