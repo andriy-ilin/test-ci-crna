@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.22.0"></a>
+# [0.22.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.21.0...v0.22.0) (2019-05-16)
+
+
+### Bug Fixes
+
+* update translate sections on screens and components ([ed460ac](https://github.com/andriy-ilin/test-ci-crna/commit/ed460ac))
+
+
+### Features
+
+* add uk locale, update translate according to code ([9b4d3ea](https://github.com/andriy-ilin/test-ci-crna/commit/9b4d3ea))
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.20.1...v0.21.0) (2019-05-16)
 
