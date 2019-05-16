@@ -5,12 +5,12 @@ import { entitiesFromFB } from "./utils";
 import BasicStore from "./BasicStore";
 
 class RegionsStore extends BasicStore {
-  @observable loading = false;
+  @observable loading = true;
   @observable loaded = false;
 
   @observable entities = {};
-  @observable regions = {};
-  @observable entriesRegionsListName = {};
+  @observable regions = [];
+  @observable entriesRegionsListName = [];
   @observable filterArticles = "";
   @observable selectedRegions = [];
   @observable findArticles = "";
@@ -51,7 +51,7 @@ class RegionsStore extends BasicStore {
     );
   }
   @computed get regionsListName() {
-    return [...toJS(this.entriesRegionsListName)];
+    return toJS(this.entriesRegionsListName);
   }
 
   @computed get listEntries() {
@@ -74,10 +74,7 @@ class RegionsStore extends BasicStore {
   }
 
   @computed get listRegions() {
-    return Object.entries(this.regions).map(([name, mainBg]) => ({
-      name,
-      mainBg
-    }));
+    return toJS(this.regions);
   }
 
   @action set(name, data) {
@@ -95,17 +92,16 @@ class RegionsStore extends BasicStore {
   @action
   async getRegions(value) {
     await this.getArticle(value);
-    const listRegions = this.listEntries;
-    let data = listRegions.reduce(
-      (prev, { region, mainBg }) => ({ ...prev, [region]: mainBg }),
-      {}
-    );
+    let data = this.listEntries
+      .map(({ region }) => region)
+      .filter((item, key, arr) => arr.indexOf(item) === key);
     return this.set("regions", data);
   }
+
   @action
-  async getRegionsName() {
-    const data = await api.fetchAllByEntityName("/regions");
-    this.set("entriesRegionsListName", data);
+  async getRegionsName(lang) {
+    const data = await api.fetchAllByEntityName(`/region/${lang}`);
+    return this.set("entriesRegionsListName", data);
   }
 }
 
