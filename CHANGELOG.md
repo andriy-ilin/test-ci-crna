@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.20.1...v0.21.0) (2019-05-16)
+
+
+### Bug Fixes
+
+* use lang in Video component ([231fdbc](https://github.com/andriy-ilin/test-ci-crna/commit/231fdbc))
+
+
+### Features
+
+* dependence between main lang and subtitles ([41e6c11](https://github.com/andriy-ilin/test-ci-crna/commit/41e6c11))
+
+
+
 <a name="0.20.1"></a>
 ## [0.20.1](https://github.com/andriy-ilin/test-ci-crna/compare/v0.20.0...v0.20.1) (2019-05-16)
 
