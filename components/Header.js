@@ -29,7 +29,7 @@ const TITLE_OFFSET_LEFT_ALIGN = Platform.OS === "ios" ? 20 : 56;
 
 const WHITE_LIST_ROUTE = ["home", "shop", "donate", "favorite", "regions"];
 const WHITE_LIST_SHOP_ROUTE = ["shop", "cart", "product"];
-const WHITE_LIST_HIDE_RIGHT_BLOCK = ["author"];
+const WHITE_LIST_HIDE_RIGHT_BLOCK = ["author", "regionArticles"];
 const WHITE_LIST_ARTICLES_ROUTE = [
   "article",
   "favoriteArticleId",

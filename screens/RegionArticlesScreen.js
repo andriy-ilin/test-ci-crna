@@ -16,6 +16,7 @@ import Title from "../components/Title";
 import Foto from "../components/Foto";
 import StyledText from "../components/StyledText";
 import Carousel from "../components/Carousel";
+import Video from "../components/Video";
 
 const { width } = Dimensions.get("window");
 
@@ -24,36 +25,57 @@ const { width } = Dimensions.get("window");
 @observer
 export class RegionArticlesScreen extends Component {
   state = {
-    data: []
+    list: []
   };
   async componentDidMount() {
     const {
       regions,
+      lng,
       navigation: { state: { params: { region } = {} } = {} }
     } = this.props;
-    const data = await regions.regionArticles(region);
-    this.setState({ data });
+
+    const list = await regions.regionArticles(region);
+    this.setState({ list });
+  }
+
+  async componentDidUpdate({ lng }) {
+    const {
+      lng: nextLng,
+      navigation: { state: { params: { region } = {} } = {} }
+    } = this.props;
+    if (lng !== nextLng) {
+      const { regions } = this.props;
+      await regions.getRegions(`/catalog/${nextLng}`);
+      const list = await regions.regionArticles(region);
+      this.setState({ list });
+    }
   }
 
   render() {
     const {
       t,
       regions,
+      lng,
       navigation: { navigate, state: { params: { region } = {} } = {} }
     } = this.props;
-    const { data } = this.state;
-
+    const { list } = this.state;
+    const { name, url, video, about, ...props } =
+      regions.regionsListName.find(
+        ({ region: itemRegion }) => itemRegion === region
+      ) || {};
     return (
-      <View style={[styles.wrapper]}>
-        <Title textTransform="capitalize">{region}</Title>
+      <ScrollView style={[styles.wrapper]}>
+        <Title textTransform="capitalize">{name}</Title>
 
-        <StyledText.Light>
-          The Green Pearl of Ukraine. The Green Pearl of Ukraine. It is one of
-          the most popular resorts and tourist centers of the country.
-        </StyledText.Light>
-
+        <StyledText.Light>{about}</StyledText.Light>
+        <View style={[styles.videoWrapper]}>
+          <Video src={video} lng={lng} width={width - 40} />
+        </View>
+        <Title textTransform="capitalize" fontSize={24} paddingTop={0}>
+          {t("common:Articles")}
+        </Title>
         <Carousel
-          data={data}
+          data={list}
           renderItem={({ mainTitle, mainBg, main320Bg, id }, key) => (
             <TouchableOpacity
               key={key}
@@ -103,26 +125,19 @@ export class RegionArticlesScreen extends Component {
             </TouchableOpacity>
           )}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
-// <View style={[styles.articleBg]} />
-
 const styles = StyleSheet.create({
   wrapper: { flex: 1 },
   articleContainer: {
     margin: 10,
     justifyContent: "flex-end",
     backgroundColor: "#fff",
-    // height: 200,
     width: width - 60,
+    minHeight: 400,
     flex: 1,
-    // maxHeight: width * 1.2,
-    // height: width * 1.2,
-    // marginLeft: 20,
-    // marginRight: 20,
-    // marginBottom: 20,
     borderRadius: 5,
     borderColor: "#ddd",
     borderWidth: 0,
@@ -131,7 +146,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 1
-    // overflow: "hidden"
   },
   articleBg: {
     top: 0,
@@ -141,11 +155,9 @@ const styles = StyleSheet.create({
     position: "absolute",
     backgroundColor: "rgba(255,255,255,.5)"
   },
-
-  image: {
-    // width: width - 60,
-    // height: width * 1.5,
-    // borderRadius: 10
+  videoWrapper: {
+    paddingLeft: 20,
+    paddingRight: 20
   }
 });
 
