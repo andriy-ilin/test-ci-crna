@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.22.0...v0.23.0) (2019-05-16)
+
+
+### Bug Fixes
+
+* add filter, find img to asset async load ([adbfb63](https://github.com/andriy-ilin/test-ci-crna/commit/adbfb63))
+
+
+### Features
+
+* get data about region from api in filter component ([0327fc2](https://github.com/andriy-ilin/test-ci-crna/commit/0327fc2))
+* show info about region from api in RegionArticlesScreen ([665d6c2](https://github.com/andriy-ilin/test-ci-crna/commit/665d6c2))
+
+
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.21.0...v0.22.0) (2019-05-16)
 
