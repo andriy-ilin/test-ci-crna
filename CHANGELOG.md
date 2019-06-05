@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.23.1"></a>
+## [0.23.1](https://github.com/andriy-ilin/test-ci-crna/compare/v0.23.0...v0.23.1) (2019-06-05)
+
+
+### Bug Fixes
+
+* add variable regions on video screen ([230ddcc](https://github.com/andriy-ilin/test-ci-crna/commit/230ddcc))
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/andriy-ilin/test-ci-crna/compare/v0.22.0...v0.23.0) (2019-05-16)
 
