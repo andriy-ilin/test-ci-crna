@@ -42,7 +42,7 @@ export class VideoScreen extends Component {
   };
 
   async componentDidMount() {
-    const { video, lng } = this.props;
+    const { video, regions, lng } = this.props;
     await regions.getRegionsName(lng);
     await video.getVideoRegions(`/video/${lng}`);
   }
@@ -50,7 +50,7 @@ export class VideoScreen extends Component {
   async componentDidUpdate({ lng }) {
     const { lng: nextLng } = this.props;
     if (lng !== nextLng) {
-      const { video } = this.props;
+      const { video, regions } = this.props;
       await regions.getRegionsName(nextLng);
       await video.getVideoRegions(`/video/${nextLng}`);
     }
@@ -60,6 +60,7 @@ export class VideoScreen extends Component {
     const {
       t,
       video: { loading = true, list = [] } = {},
+      regions,
       video,
       lng
     } = this.props;
