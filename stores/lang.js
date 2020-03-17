@@ -1,6 +1,6 @@
 import { observable, computed, action, toJS } from "mobx";
 import { AsyncStorage } from "react-native";
-import { Localization } from "expo-localization";
+import * as Localization from "expo-localization";
 import i18n from "../services/i18n";
 
 import api from "../services/api";

@@ -1,4 +1,5 @@
-import { Permissions, Notifications, Constants } from "expo";
+import { Notifications, Constants } from "expo";
+import * as Permissions from "expo-permissions";
 import api from "../services/api";
 import env from "../env";
 

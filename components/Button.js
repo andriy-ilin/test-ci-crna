@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Button = ({ children, onPress, ...props }) => (
   <TouchableOpacity onPress={onPress}>

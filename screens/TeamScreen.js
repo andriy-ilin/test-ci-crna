@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observer, inject } from "mobx-react/native";
 import { withNamespaces } from "react-i18next";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 import {
   View,
   ScrollView,

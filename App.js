@@ -1,6 +1,9 @@
 import React from "react";
 import { Platform, StatusBar, StyleSheet, View, Text } from "react-native";
-import { AppLoading, Asset, Font, Icon } from "expo";
+import { AppLoading } from "expo";
+import { Asset } from "expo-asset";
+import * as Icon from "@expo/vector-icons";
+import * as Font from "expo-font";
 import { Provider, observer } from "mobx-react/native";
 import { configure } from "mobx";
 import { I18nextProvider } from "react-i18next";

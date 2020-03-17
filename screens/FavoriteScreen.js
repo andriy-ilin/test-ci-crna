@@ -11,7 +11,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 
 import Title from "../components/Title";
 import Foto from "../components/Foto";

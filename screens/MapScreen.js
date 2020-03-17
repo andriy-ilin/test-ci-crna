@@ -8,7 +8,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from "react-native";
-import { MapView } from "expo";
+import MapView from "react-native-maps";
 import Title from "../components/Title";
 import StyledText from "../components/StyledText";
 import Video from "../components/Video";

@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image as ImageDefault } from "react-native";
-import { BlurView } from "expo";
-import { LinearGradient } from "expo";
+import { BlurView } from "expo-blur";
+import { LinearGradient } from "expo-linear-gradient";
 import SwiperComponent from "react-native-swiper";
 
 const Swiper = ({

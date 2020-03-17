@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 import { withNamespaces } from "react-i18next";
 import { slugify } from "transliteration";
 

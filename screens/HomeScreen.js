@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Dimensions
 } from "react-native";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 import { inject, observer } from "mobx-react/native";
 import { withNamespaces } from "react-i18next";
 

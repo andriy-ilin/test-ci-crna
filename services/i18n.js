@@ -1,6 +1,6 @@
 import i18n from "i18next";
 import { reactI18nextModule } from "react-i18next";
-import { Localization } from "expo-localization";
+import * as Localization from "expo-localization";
 import en from "../locale/en.json";
 import de from "../locale/de.json";
 import uk from "../locale/uk.json";
